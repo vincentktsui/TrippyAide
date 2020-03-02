@@ -10,6 +10,7 @@ bundle.js
 bundle.js.map
 package-lock.json
 Gemfile.lock
+config.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*
