@@ -59,6 +59,7 @@ button:hover {
 .join {
     display: inline-block;
     background-color: #020A12;
+    font-weight: bold;
     color: white;
     font-size: 14px;
     border-radius: 4px;
@@ -66,6 +67,7 @@ button:hover {
     line-height: 20px;
     padding: 8px 15px;
     box-sizing: border-box;
+    // font-family: 'Arial';
 }
 
 .join:hover {
