@@ -1,17 +1,23 @@
 .nav-bar-outer {
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: center;
     height: 60px;
     background-color: white;
 }
 
+button:hover {
+    cursor: pointer;
+}
 .nav-bar-inner {
     display: flex;
     justify-content: space-between;
     height: 60px;
-    // padding: 0 100px;
+    padding: 0 24px;
     width: 100%;
     max-width: 1280px;
+    box-sizing: border-box;
 }
 
 .logo-container img {
@@ -50,7 +56,7 @@
     align-items: center;
 }
 
-.nav-right button {
+.join {
     display: inline-block;
     background-color: #020A12;
     color: white;
@@ -62,10 +68,78 @@
     box-sizing: border-box;
 }
 
-.nav-right button:hover {
+.join:hover {
     background-color: #292929;
+}
+
+.avatar-container {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    vertical-align: center;
+}
+.avatar-container > img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.avatar {
+    position: relative;
+    padding-right: 28px;
+}
+
+.avatar-container:hover {
     cursor: pointer;
 }
 
+.user-dropdown {
+    box-sizing: border-box;
+    position: absolute;
+    background: white;
+    width: 200px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px #2c2c2c; 
+    top: 44px;
+    right: 0px;
+    padding: 12px 24px;
+}
 
+.user-dropdown li {
+    height: 34px;
+    // vertical-align: middle;
+    line-height: 34px;
+}
 
+.user-dropdown li:hover {
+    cursor: pointer;
+}
+
+.user-dropdown li:first-child {
+    border-bottom: solid 1px #e5e5e5;
+    padding-bottom: 12px;
+}
+
+.user-dropdown li:nth-child(2) {
+    padding-top: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.avatar-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #2c2c2c;
+}
+
+.user-dropdown button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+    color: #2c2c2c;
+    font-size: 14px;
+    font-family: "Open Sans";
+}

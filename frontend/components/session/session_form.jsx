@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Modal from '../modal';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -16,6 +15,12 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        const emailplaceholder = (this.props.formType === 'signup') ? 
+            "Email (valid emails only)" : '';
+        const passwordplaceholder = (this.props.formType === 'signup') ? 
+            "Password (minimum 6 characters)" : '';
+        const passwordprompt = (this.props.formType === 'signup') ?
+            "Create a password" : "Password";
         const header = (this.props.formType === 'login') ? 
             "Welcome back - log in!" : "Join now - it's free!";
         const footer = (this.props.formType === 'login') ? 
@@ -52,15 +57,17 @@ class SessionForm extends React.Component {
                             <br/>
                             <input
                                 id="session-email"
-                                type="text"
+                                type="text" 
+                                placeholder={emailplaceholder}
                                 value={this.state.email}
                                 onChange={this.handleInput('email')} />
                             <br/>
-                            <label htmlFor='session-password'>Create a password</label>
+                            <label htmlFor='session-password'>{passwordprompt}</label>
                             <br/>
                             <input
                                 id="session-password"
                                 type="password"
+                                placeholder={passwordplaceholder}
                                 value={this.state.password}
                                 onChange={this.handleInput('password')} />
                             <br/>

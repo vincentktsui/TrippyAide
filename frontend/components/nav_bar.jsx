@@ -2,26 +2,33 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
+    let path = props.match.url;
+    if (path.charAt(path.length - 1) === '/') {
+        path = path.substring(0, path.length - 1);
+    }
     const display = (props.currentUser) ? (
-        <div>
-            <p>Welcome, {props.currentUser.displayName}</p>
-            <button onClick={props.logout}>Log Out</button>
+        <div className="avatar"
+            onClick={() => {$('.user-dropdown').toggleClass("hidden")}}>
+            <div className="avatar-container">
+                <img src="/assets/avatar.jpg"/>
+            </div>
+            <div className="user-dropdown hidden">
+                <ul>
+                    <li>
+                        <Link className='avatar-link'>View Profile</Link>    
+                    </li>
+                    <li onClick={props.logout}>
+                        <button>Sign Out</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     ) : (
-            <div>
-                <Link
-                    className="link-button"
-                    to={`${props.match.url}/signup`}>Sign Up
-            </Link> or <Link
-                    className="link-button"
-                    to={`${props.match.url}/login`}>Log In
+            <Link to={`${path}/signup`}>
+                <button className="join">JOIN</button>
             </Link>
-            </div>
         )
-    let path = props.match.url;
-    if (path.charAt(path.length-1) === '/') {
-        path = path.substring(0, path.length-1);
-    }
+
     return (
         <nav className="nav-bar-inner">
             <div className="nav-left">
@@ -43,10 +50,9 @@ const NavBar = (props) => {
                 <ul>
 
                 </ul>
-                <Link to={`${path}/signup`}>
-                    <button>JOIN</button>
-                </Link>
+                {display}
             </div>
+
         </nav>
     );
 };

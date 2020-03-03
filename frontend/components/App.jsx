@@ -4,7 +4,7 @@ import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
 import NavBarContainer from './nav_bar_container';
 
-// import { AuthRoute, ProtectedRoute, BenchRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div>
@@ -12,8 +12,8 @@ const App = () => (
             <NavBarContainer />
         </header>
         <div className="main-content">
-            <Route path="/login" component={LoginFormContainer} />
-            <Route path="/signup" component={SignupFormContainer} />
+            <AuthRoute path="/login" component={LoginFormContainer} />
+            <AuthRoute path="/signup" component={SignupFormContainer} />
         </div>
         <footer>
 
