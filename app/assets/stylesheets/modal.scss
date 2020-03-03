@@ -1,0 +1,116 @@
+.modal {
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-form {
+  position: absolute;
+  margin: auto;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 340px;
+  height:282px;
+  padding: 48px;
+  background-color: white;
+  box-sizing: content-box;
+}
+
+.session-inner img {
+    height: 32px;
+}
+
+.session-inner > header {
+    height: 32px;
+    margin-bottom: 24px;
+}
+
+.session-header {
+    height: 19px;
+    margin-bottom: 16px;
+    line-height: 19px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000a12;
+}
+
+.session-form > label {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19px;
+    color: #000a12;
+}
+
+.session-form > input {
+    text-align: left;
+    margin-bottom: 16px;
+    font-size: 14px;
+    height: 28px;
+    width: 100%;
+    padding: 4px;
+    padding-left: 8px;
+    border-radius: 3px;
+    border: solid 1px #e5e5e5;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 18px;
+    vertical-align: center;
+}
+
+.session-form > button {
+    background-color: #078171;
+    border: 1px solid #078171;
+    color: white;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+.session-form > button:hover {
+    background-color: #06695c;
+    cursor: pointer;
+}
+
+.session-form > footer {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 16px;
+}
+
+.session-link {
+    color: #069;
+    text-decoration: none;
+}
+
+.session-link:hover {
+    text-decoration: underline;
+}
+
+.ui-close {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #4a4a4a;
+    font-size: 32px;
+    line-height: 48px;
+    width: 48px;
+    background-color: white;
+    border: none;
+}
+.ui-close:hover {
+    cursor: pointer;
+    opacity: .6;
+}
