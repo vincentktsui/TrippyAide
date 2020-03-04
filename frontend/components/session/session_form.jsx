@@ -9,9 +9,15 @@ class SessionForm extends React.Component {
             password: "",
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
     componentWillUnmount() {
         this.props.clearSessionErrors();
+    }
+
+    demoLogin() {
+        const user = {email: 'demouser@aa.io', password:'demouser'};
+        this.props.demoLogin(user);
     }
 
     render() {
@@ -32,9 +38,47 @@ class SessionForm extends React.Component {
         let stripped = this.props.match.url.split('/');
         stripped.pop();
         stripped = stripped.join('/');
-        const errors = this.props.errors.map((error) => {
+
+        //errors
+        const emailerrorstrings = this.props.errors.filter( 
+            (error) => error.toLowerCase().includes("email"));
+        const passworderrorstrings = this.props.errors.filter( 
+            (error) => error.toLowerCase().includes("password"));
+        const emailerrors = emailerrorstrings.map((error) => {
             return <li key={Math.random()}>{error}</li>;
-        })
+        });
+        const passworderrors = passworderrorstrings.map((error) => {
+            return <li key={Math.random()}>{error}</li>;
+        });
+        const emailerrorsdiv = (emailerrors.length === 0) ? (
+                <div className="session-errors email hidden">
+                    <ul>
+                        {emailerrors}
+                    </ul>
+                </div>) : (
+                <div className="session-errors email">
+                    <ul>
+                        {emailerrors}
+                    </ul>
+                    <div className="triangle"></div>
+                </div>
+                );
+        const passworderrorsdiv = 
+        (passworderrors.length === 0 || emailerrors.length !== 0) ? (
+                <div className="session-errors password hidden">
+                    <ul>
+                        {passworderrors}
+                    </ul>
+                </div>) : (
+                <div className="session-errors password">
+                    <ul>
+                        {passworderrors}
+                    </ul>
+                    <div className="triangle"></div>
+                </div>
+                );
+
+        // debugger
         return (
             <div className="modal">
                 <div className="modal-screen"></div>
@@ -46,9 +90,8 @@ class SessionForm extends React.Component {
                         <header>
                             <img src="/assets/login.svg" />
                         </header>
-                        <ul>
-                            {errors}
-                        </ul>
+                        {emailerrorsdiv}
+                        {passworderrorsdiv}
                         <form className="session-form">
                             <div className="session-header">
                                 {header}
@@ -58,6 +101,8 @@ class SessionForm extends React.Component {
                             <input
                                 id="session-email"
                                 type="text" 
+                                className={(emailerrors.length !== 0) ?
+                                    "errors-highlight" : ""}
                                 placeholder={emailplaceholder}
                                 value={this.state.email}
                                 onChange={this.handleInput('email')} />
@@ -67,6 +112,9 @@ class SessionForm extends React.Component {
                             <input
                                 id="session-password"
                                 type="password"
+                                className={(passworderrors.length !== 0 && 
+                                    emailerrors.length === 0) ? 
+                                    "errors-highlight" : ""}
                                 placeholder={passwordplaceholder}
                                 value={this.state.password}
                                 onChange={this.handleInput('password')} />
@@ -76,7 +124,13 @@ class SessionForm extends React.Component {
                                 className="session-button">{buttontext}</button>
                             <footer>
                                 {footer}
-                                <span><Link className="session-link" to={link}>{opp}</Link></span>
+                                <span><Link className="session-link" 
+                                to={link}>{opp}</Link></span>
+                            </footer>
+                            <footer>
+                                Want to try it out?&nbsp;
+                                <button className="demo" 
+                                onClick={this.demoLogin}>Demo</button>
                             </footer>
                         </form>
                     </div>
