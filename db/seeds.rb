@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create({email: 'demouser@aa.io', password: 'demouser'})
+
 Attraction.create({name: 'Alcatraz Island', country: 'USA', 
     administrative_area: 'CA', locality: 'San Francisco', 
     postal_code: '94123', thoroughfare: 'Pier 33', 
