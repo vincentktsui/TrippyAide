@@ -2,12 +2,12 @@ import React from 'react';
 import AttractionsIndexItem from './attractions_index_item';
 
 class AttractionsIndex extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         // debugger
         this.props.fetchAttractions();
     }
     render() {
-        debugger
+        // debugger
         if (Object.keys(this.props.attractions).length === 0)
             return null;
         // debugger

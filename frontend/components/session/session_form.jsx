@@ -21,6 +21,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        // debugger
         const emailplaceholder = (this.props.formType === 'signup') ? 
             "Email (valid emails only)" : '';
         const passwordplaceholder = (this.props.formType === 'signup') ? 
@@ -32,12 +33,18 @@ class SessionForm extends React.Component {
         const footer = (this.props.formType === 'login') ? 
             "Don't have an account? " : "Already have an account? "
         const buttontext = (this.props.formType === 'login') ? "Log In" : "Join";
-        const link = (this.props.formType === 'login') ? "/signup" : "/login";
         const opp = (this.props.formType === 'signup') ? "Log In" : "Sign Up";
         // debugger
+        const temp = (this.props.match.params.url) ? 
+            (this.props.match.params.url) : '';
+        const closeurl = '/' + temp; 
         let stripped = this.props.match.url.split('/');
         stripped.pop();
         stripped = stripped.join('/');
+        const link = (this.props.formType === 'login') ? stripped+"/signup"
+            : stripped+"/login";
+        console.log(this.props.match)
+        // console.log(closeurl);
 
         //errors
         const emailerrorstrings = this.props.errors.filter( 
@@ -83,7 +90,7 @@ class SessionForm extends React.Component {
             <div className="modal">
                 <div className="modal-screen"></div>
                 <div className="modal-form">
-                    <Link to={stripped}>
+                    <Link to={closeurl}>
                         <button className="ui-close">&times;</button>
                     </Link>
                     <div className="session-inner">

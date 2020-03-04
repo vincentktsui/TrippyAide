@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
-    let path = props.match.url;
+    let path = props.location.pathname;
     if (path.charAt(path.length - 1) === '/') {
         path = path.substring(0, path.length - 1);
     }
@@ -17,9 +17,12 @@ const NavBar = (props) => {
                     <li>
                         <Link className='avatar-link'>View Profile</Link>    
                     </li>
-                    <li onClick={props.logout}>
-                        <button>Sign Out</button>
+                    <li>
+                        <Link to="/">
+                            <button onClick={props.logout}>Sign Out</button>
+                        </Link>
                     </li>
+
                 </ul>
             </div>
         </div>

@@ -13,8 +13,8 @@ const App = () => (
         </header>
         <div className="main-content">
             <Route exact path="/attractions" component={AttractionsIndexContainer} />
-            <AuthRoute path="/login" component={LoginFormContainer} />
-            <AuthRoute path="/signup" component={SignupFormContainer} />
+            <AuthRoute path="/:url?/login" component={LoginFormContainer} />
+            <AuthRoute path="/:url?/signup" component={SignupFormContainer} />
         </div>
         <footer>
 
