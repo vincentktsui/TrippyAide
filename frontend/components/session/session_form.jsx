@@ -15,13 +15,14 @@ class SessionForm extends React.Component {
         this.props.clearSessionErrors();
     }
 
-    demoLogin() {
+    demoLogin(e) {
+        e.preventDefault();
         const user = {email: 'demouser@aa.io', password:'demouser'};
         this.props.demoLogin(user);
     }
 
     render() {
-        // 
+        debugger
         const emailplaceholder = (this.props.formType === 'signup') ? 
             "Email (valid emails only)" : '';
         const passwordplaceholder = (this.props.formType === 'signup') ? 

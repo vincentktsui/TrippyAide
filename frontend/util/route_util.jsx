@@ -7,9 +7,13 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
         path={path}
         exact={exact}
         render={props => {
+            debugger
             let stripped = props.match.url.split('/');
             stripped.pop();
             stripped = stripped.join('/');
+            if (stripped === '') {
+                stripped = '/';
+            }
             return (
                 !loggedIn ? <Component {...props} /> : <Redirect to={stripped} />
             )

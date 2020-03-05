@@ -36,11 +36,11 @@ const NavBar = (props) => {
         <nav className="nav-bar-inner">
             <div className="nav-left">
                 <h1>
-                    <div className="logo-container">
-                        <a href="#">
+                    <Link to="/">
+                        <div className="logo-container">
                             <img src={window.logoURL}/>
-                        </a>
-                    </div>
+                        </div>
+                    </Link>
                 </h1>
                 <div className="search-bar">
                     <form>
