@@ -8,8 +8,8 @@
 /.bundle
 bundle.js
 bundle.js.map
-package-lock.json
-Gemfile.lock
+# package-lock.json
+# Gemfile.lock
 config/config.yml
 
 # Ignore all logfiles and tempfiles.
@@ -27,6 +27,9 @@ config/config.yml
 
 /public/assets
 .byebug_history
+
+npm-debug.log
+/yarn-error.log/public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
