@@ -82,4 +82,5 @@ production:
   <<: *default
   database: trip_advisor_clone_production
   username: trip_advisor_clone
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
   password: <%= ENV['TRIP_ADVISOR_CLONE_DATABASE_PASSWORD'] %>
