@@ -14,14 +14,20 @@ class Attraction < ApplicationRecord
             WHERE coordinates::geometry @ ST_MakeEnvelope(
                 ?, ?, ?, ?, 4326)
         SQL
-        # Attraction.find_by_sql("
-        #     SELECT * FROM attractions
-        #     WHERE coordinates::geometry @ ST_MakeEnvelope(
-        #       ?, ?, ?, ?, 4326)", west, south, east, north)
         Attraction.find_by_sql(sql)
-    end   
+    end
 
-    # def basicquery
-        
-    # end
+    def self.radius(lng, lat, id)
+        radius_mi = 1.8
+        sql= <<-SQL, id, lng, lat, radius_mi
+            SELECT * FROM attractions
+            WHERE id != ? AND
+            ST_DistanceSphere(
+                coordinates::geometry, 
+                ST_MakePoint(?, ?)
+                ) <= ? * 1610
+        SQL
+        Attraction.find_by_sql(sql)
+    end
+
 end

@@ -16,7 +16,6 @@ export const fetchAttractions = (filters) => {
 // }
 
 export const fetchAttraction = (id) => {
-    // 
     return $.ajax({
         method: 'GET',
         url: `/api/attractions/${id}`,

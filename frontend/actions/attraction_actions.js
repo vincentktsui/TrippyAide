@@ -17,10 +17,10 @@ export const receiveAttractionErrors = errors => ({
     errors
 });
 
-export const receiveAttraction = attraction => {
+export const receiveAttraction = attractions => {
     return {
         type: RECEIVE_ATTRACTION,
-        attraction
+        attractions
     }
 };
 
@@ -38,7 +38,7 @@ export const fetchAttractions = (filters) => dispatch => (
 
 export const fetchAttraction = id => dispatch => (
     AttractionUtil.fetchAttraction(id)
-        .then((attraction) => dispatch(receiveAttraction(attraction)))
+        .then((attractions) => dispatch(receiveAttraction(attractions)))
         .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
 );
 

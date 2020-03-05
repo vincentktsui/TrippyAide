@@ -28,7 +28,7 @@ class AttractionsMap extends React.Component {
                 southWest: { lat: southWest.lat(), lng: southWest.lng() }
             };
             // 
-            // that.props.updateFilter("bounds", bounds);
+            that.props.updateFilter("bounds", bounds);
         });
 
         // google.maps.event.addListener(this.map, 'click', (event) => {
@@ -44,6 +44,7 @@ class AttractionsMap extends React.Component {
     componentDidUpdate() {
         this.MarkerManager.updateMarkers(this.props.attractions);
     }
+    
     render() {
         return (
             <div id='map-container' ref={map => this.mapNode = map}>

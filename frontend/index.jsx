@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
+import { fetchAttraction } from './actions/attraction_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -22,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     else {
         store = configureStore();
     }
+
+    window.fetchAttraction = fetchAttraction;
+    window.store = store;
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);
 });

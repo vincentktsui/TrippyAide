@@ -1,13 +1,21 @@
 class Api::AttractionsController < ApplicationController
     def index
         @attractions = Attraction.all
-        # @benches = Bench.in_bounds(params[:bounds])
+        # @attractions = Attraction.in_bounds(params[:filters][:bounds])
         render :index
     end
 
     def show
+        # debugger
         @attraction = Attraction.find_by(id: params[:id])
-        render :show
+        if @attraction.nil?
+            render json: ['Attraction does not exist'], status: 404 
+        else
+            lat = @attraction.coordinates.y
+            lng = @attraction.coordinates.x
+            @nearby = Attraction.radius(lng, lat, params[:id])
+            render :show
+        end
     end
 
     def create
