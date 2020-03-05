@@ -10,7 +10,7 @@ const NavBar = (props) => {
         <div className="avatar"
             onClick={() => {$('.user-dropdown').toggleClass("hidden")}}>
             <div className="avatar-container">
-                <img src="/assets/avatar.jpg"/>
+                <img src={window.avatarURL}/>
             </div>
             <div className="user-dropdown hidden">
                 <ul>
@@ -38,7 +38,7 @@ const NavBar = (props) => {
                 <h1>
                     <div className="logo-container">
                         <a href="#">
-                            <img src="/assets/logo.svg"/>
+                            <img src={window.logoURL}/>
                         </a>
                     </div>
                 </h1>

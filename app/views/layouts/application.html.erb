@@ -8,6 +8,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript">
+      window.avatarURL = "<%= image_url('avatar.jpg') %>";
+      window.loginURL = "<%= image_url('login.svg') %>";
+      window.logoURL = "<%= image_url('logo.svg') %>";
+    </script>
   </head>
 
   <body>
