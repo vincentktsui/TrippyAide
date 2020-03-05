@@ -1,6 +1,7 @@
 class Api::AttractionsController < ApplicationController
     def index
         @attractions = Attraction.all
+        # @benches = Bench.in_bounds(params[:bounds])
         render :index
     end
 
