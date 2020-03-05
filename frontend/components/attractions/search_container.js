@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import Search from './search';
 import { fetchAttractions } from '../../actions/attraction_actions';
 import { updateFilter } from '../../actions/filter_actions';
-// import BenchIndex from './bench_index';
 
 
 const mapStateToProps = ({ entities, ui }) => ({
