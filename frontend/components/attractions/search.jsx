@@ -4,7 +4,7 @@ import AttractionsIndex from './attractions_index';
 // import FilterForm from './filter_form';
 
 const Search = (props) => {
-    // debugger
+    // 
     return (
         <div>
             <AttractionsMap 

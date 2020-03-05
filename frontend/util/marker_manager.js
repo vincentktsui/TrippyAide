@@ -12,13 +12,12 @@ class MarkerManager {
             if (!that.markers[attraction.id])
                 that.createMarkerFromAttraction(attraction);
         })
-        // debugger
+        // 
         Object.keys(this.markers).forEach( id => {
             if (!attractions[id]) {
                 that.removeMarker(that.markers[id], id);
             }
         })
-        console.log(this.markers)
     }
     createMarkerFromAttraction(attraction) {
         const pos = new google.maps.LatLng(attraction.lat, attraction.lng);

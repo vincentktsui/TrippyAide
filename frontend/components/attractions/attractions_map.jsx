@@ -17,7 +17,7 @@ class AttractionsMap extends React.Component {
         // wrap this.mapNode in a Google Map
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map);
-        // debugger
+        // 
         let that = this;
         google.maps.event.addListener(this.map, 'idle', () => {
             const LatLngBounds = this.map.getBounds();
@@ -27,7 +27,7 @@ class AttractionsMap extends React.Component {
                 northEast: { lat: northEast.lat(), lng: northEast.lng() },
                 southWest: { lat: southWest.lat(), lng: southWest.lng() }
             };
-            // debugger
+            // 
             // that.props.updateFilter("bounds", bounds);
         });
 

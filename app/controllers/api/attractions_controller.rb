@@ -11,7 +11,7 @@ class Api::AttractionsController < ApplicationController
     end
 
     def create
-        # debugger
+        # 
         @attraction = Attraction.new(attraction_params)
         if @attraction.save
         else

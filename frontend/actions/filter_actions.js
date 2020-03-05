@@ -23,9 +23,9 @@ export const updateFilter = (filter, value) => {
 
 
 // export const filterBounds = (filter) => {
-//     // debugger
+//     // 
 //     return (dispatch, getState) => {
-//         // debugger
+//         // 
 //         dispatch(updateBounds(filter));
 //         return fetchBenches(getState().ui.filters)(dispatch);
 //     };

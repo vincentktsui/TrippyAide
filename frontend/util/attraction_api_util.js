@@ -1,10 +1,9 @@
 export const fetchAttractions = (filters) => {
-    // debugger
+    // 
     return $.ajax({
         method: 'GET',
         url: '/api/attractions',
         data: { filters },
-        // error: (err) => console.log(err)
     })
 }
 
@@ -13,15 +12,13 @@ export const fetchAttractions = (filters) => {
 //         method: 'POST',
 //         url: 'api/benches',
 //         data: { bench },
-//         error: (err) => console.log(err)
 //     })
 // }
 
 export const fetchAttraction = (id) => {
-    // debugger
+    // 
     return $.ajax({
         method: 'GET',
         url: `/api/attractions/${id}`,
-        // error: (err) => console.log(err)
     })
 }
