@@ -13,14 +13,19 @@ class AttractionsIndex extends React.Component {
             .map(attraction => <AttractionsIndexItem key={attraction.id} 
                                 attraction={attraction} />);
         return (
-            <div>
-                <Link to='/attractions'>
-                    <button>Close Map</button>
-                </Link>
+            <aside className="attractions-map-list">
                 <ul>
+                    <li>
+                        <Link to='/attractions'>
+                            <button className='black-button'>
+                                <span>&times;&nbsp;</span>Close Map
+                            </button>
+                        </Link>
+                    </li>
+
                     {attractions}
                 </ul>
-            </div>
+            </aside>
         )
     }
 }

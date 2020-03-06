@@ -28,7 +28,7 @@ const NavBar = (props) => {
         </div>
     ) : (
             <Link to={`${path}/signup`}>
-                <button className="join">JOIN</button>
+                <button className="black-button">JOIN</button>
             </Link>
         )
 

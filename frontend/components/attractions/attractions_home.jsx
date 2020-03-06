@@ -9,7 +9,10 @@ class AttractionsHome extends React.Component {
     render() {
         return (
             <Link to="/attractions/map">
-                <button>View Map</button>
+                <button 
+                // onClick={(e) => 
+                //     document.body.style.overflow = 'hidden'}
+                    >View Map</button>
             </Link>
         )
     }

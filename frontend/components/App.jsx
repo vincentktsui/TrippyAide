@@ -20,11 +20,11 @@ const App = () => (
                     <Link to="/attractions">Attractions</Link>
                 )
             }} />
-            <Route path="/attractions" component={AttractionHomeContainer}/>
             <Switch>
-                <Route path="/attractions/map" component={SearchContainer} />
                 <Route path="/attractions/:attractionId" component={ShowContainer} />
+                <Route path="/attractions" component={AttractionHomeContainer}/>
             </Switch>
+            <Route exact path="/attractions/map" component={SearchContainer} />
             <Link to="/attractions"></Link>
             <AuthRoute path="/:url?/login" component={LoginFormContainer} />
             <AuthRoute path="/:url?/signup" component={SignupFormContainer} />
