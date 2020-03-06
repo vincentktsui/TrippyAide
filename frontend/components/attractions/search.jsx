@@ -6,13 +6,14 @@ import AttractionsIndex from './attractions_index';
 const Search = (props) => {
     // 
     return (
-        <div>
-            <AttractionsMap 
-                attractions={props.attractions}
-                updateFilter={props.updateFilter}/>
+        <div className="full-map-container">
             <AttractionsIndex 
                 attractions={props.attractions} 
                 fetchAttractions={props.fetchAttractions}/>
+            <AttractionsMap 
+                attractions={props.attractions}
+                updateFilter={props.updateFilter}
+                type="dynamic"/>
         </div>
     )
 }

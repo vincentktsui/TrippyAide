@@ -1,7 +1,7 @@
 class Api::AttractionsController < ApplicationController
     def index
         @attractions = Attraction.all
-        # @attractions = Attraction.in_bounds(params[:filters][:bounds])
+        @attractions = Attraction.in_bounds(params[:filters][:bounds])
         render :index
     end
 
@@ -19,7 +19,6 @@ class Api::AttractionsController < ApplicationController
     end
 
     def create
-        # 
         @attraction = Attraction.new(attraction_params)
         if @attraction.save
         else

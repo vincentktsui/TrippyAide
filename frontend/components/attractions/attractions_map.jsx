@@ -20,7 +20,7 @@ class AttractionsMap extends React.Component {
         }
         else {
             const mapOptions = {
-                center: { lat: 37.7758, lng: -122.435 }, // this is SF
+                center: { lat: 37.7858, lng: -122.435 }, // this is SF
                 zoom: 13
             };
             // set the map to show SF
@@ -40,7 +40,7 @@ class AttractionsMap extends React.Component {
                 // 
                 that.props.updateFilter("bounds", bounds);
             });
-
+            // debugger
             // google.maps.event.addListener(this.map, 'click', (event) => {
             //     const coords = event.latLng
             //     that.props.history.push({
