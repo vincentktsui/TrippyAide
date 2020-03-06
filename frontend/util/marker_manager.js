@@ -11,7 +11,7 @@ class MarkerManager {
         Object.keys(this.markers).forEach( id => {
             if (
                 (!attractions[id])
-                || (this.markers[id].icon === window.attractionMainURL)
+                || (this.markers[id].icon.url === window.attractionMainURL)
              ) {
                 //  debugger
                 that.removeMarker(id);
@@ -40,7 +40,8 @@ class MarkerManager {
     // }
 
     createMarkerFromAttraction(attraction, icon) {
-        icon = icon || window.attractionSmallURL;
+        icon = (icon) ? { url: icon, scaledSize: new google.maps.Size(50,50) } :
+         {url: window.attractionSmallURL, scaledSize: new google.maps.Size(25,25)};
 
         if (this.markers[attraction.id]) {
             // debugger
@@ -52,6 +53,13 @@ class MarkerManager {
             map: this.map,
             icon: icon
         })
+        marker.addListener('mouseover', () => {
+            console.log('hovering');
+        })
+        marker.addListener('click', () => {
+            console.log('clicked');
+        })
+        // google.maps.event.addListener()
 
         this.markers[attraction.id] = marker;
     }
