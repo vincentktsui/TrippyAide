@@ -19,15 +19,16 @@ class Attraction < ApplicationRecord
 
     def self.radius(lng, lat, id)
         radius_mi = 1.8
-        sql= <<-SQL, id, lng, lat, radius_mi
+        sql= <<-SQL, lng, lat, radius_mi
             SELECT * FROM attractions
-            WHERE id != ? AND
+            WHERE 
             ST_DistanceSphere(
                 coordinates::geometry, 
                 ST_MakePoint(?, ?)
                 ) <= ? * 1610
         SQL
         Attraction.find_by_sql(sql)
+        # id != ? AND
     end
 
 end

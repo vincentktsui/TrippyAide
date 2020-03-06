@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Show from './show';
 import { fetchAttraction } from '../../actions/attraction_actions';
 // import { updateFilter } from '../../actions/filter_actions';
+import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = ({ entities, ui }) => ({
@@ -10,11 +11,11 @@ const mapStateToProps = ({ entities, ui }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchAttraction: () => dispatch(fetchAttraction()),
+    fetchAttraction: (id) => dispatch(fetchAttraction(id)),
     // filterBounds: (bounds) => dispatch(filterBounds(bounds)),
     // updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
 });
 
 
 // connect(mapStateToProps, mapDispatchToProps)(BenchIndex);
-export default connect(mapStateToProps, mapDispatchToProps)(Show);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Show));

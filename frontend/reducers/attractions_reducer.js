@@ -10,7 +10,8 @@ const attractionsReducer = (state = {}, action) => {
         case RECEIVE_ATTRACTION:
             // newState = Object.assign(newState, action.attractions.nearby);
             // return newState;
-            return action.attractions.nearby;
+            newState = Object.assign({}, action.attractions.nearby);
+            return newState;
         default:
             return state;
     }
