@@ -52,7 +52,9 @@ class AttractionsMap extends React.Component {
 
     }
     componentDidUpdate() {
-        this.MarkerManager.updateMarkers(this.props.attractions);
+        if (this.props.type === 'dynamic') {
+            this.MarkerManager.updateMarkers(this.props.attractions);
+        }
     }
 
     render() {
@@ -61,8 +63,7 @@ class AttractionsMap extends React.Component {
             !jQuery.isEmptyObject(this.props.show)
             && (`${this.props.show.id}` === this.props.match.params.attractionId)
             ) {
-                // debugger
-            // console.log(this.props.show)
+
             this.map.setCenter({lat: this.props.show.lat, 
                 lng: this.props.show.lng});
             this.MarkerManager.updateMarkers(this.props.attractions);

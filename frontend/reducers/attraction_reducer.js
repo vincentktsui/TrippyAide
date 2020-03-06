@@ -1,4 +1,4 @@
-import { RECEIVE_ATTRACTION } from '../actions/attraction_actions';
+import { RECEIVE_ATTRACTION, CLEAR_ATTRACTION } from '../actions/attraction_actions';
 
 const attractionReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -7,6 +7,8 @@ const attractionReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_ATTRACTION:
             return action.attractions.show;
+        case CLEAR_ATTRACTION:
+            return {};
         default:
             return state;
     }

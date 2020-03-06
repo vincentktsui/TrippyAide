@@ -13,7 +13,6 @@ class MarkerManager {
                 (!attractions[id])
                 || (this.markers[id].icon.url === window.attractionMainURL)
              ) {
-                //  debugger
                 that.removeMarker(id);
             }
         });
@@ -41,10 +40,9 @@ class MarkerManager {
 
     createMarkerFromAttraction(attraction, icon) {
         icon = (icon) ? { url: icon, scaledSize: new google.maps.Size(50,50) } :
-         {url: window.attractionSmallURL, scaledSize: new google.maps.Size(25,25)};
+         {url: window.attractionSmallURL, scaledSize: new google.maps.Size(25,30)};
 
         if (this.markers[attraction.id]) {
-            // debugger
             this.removeMarker(attraction.id)
         }
         const pos = new google.maps.LatLng(attraction.lat, attraction.lng);

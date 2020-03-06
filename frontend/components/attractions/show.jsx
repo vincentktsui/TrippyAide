@@ -29,6 +29,9 @@ class Show extends React.Component {
         // }
     }
 
+    componentWillUnmount() {
+        this.props.clearAttraction();
+    }
     render () {
         // console.log(this.state)
         // console.log(this.props.show)
