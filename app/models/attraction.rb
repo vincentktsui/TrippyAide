@@ -1,9 +1,6 @@
 class Attraction < ApplicationRecord
-    # scope :within, -> (latitude, longitude, distance_in_mile = 1) {
-    #     where(%{
-    #         ST_Distance(coordinates, 'POINT())
-    #     })
-    # }
+
+    has_many_attached :photos
     def self.in_bounds(bounds)
         north = bounds['northEast']['lat'];
         east = bounds['northEast']['lng'];

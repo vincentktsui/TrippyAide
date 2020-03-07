@@ -15,35 +15,40 @@ class AttractionsShow extends React.Component {
     // }
 
     render() {
-        if (!this.props.show) {
+        if (Object.keys(this.props.show).length === 0) {
             return null;
         }
-        // debugger
+        debugger
         const address = Util.addressMaker(this.props.show);
         
         return (
-            <div className="attraction-show-outer">
-                <div className='attraction-show-top'>
-                    <div>
-                        <h1>{this.props.show.name}</h1>
-                        Reviews
-                    </div>
-                    <div>
-                        Extra stuff
-                    </div>
-                </div>
-                <div className="attraction-show-bot">
-                    <div>
-                        <h2>Overview</h2>
+            <div>
+                <div className="attraction-show-outer">
+                    <section className='attraction-show-top'>
                         <div>
-                            <section>{this.props.show.about}</section>
-                            <section>Address: {address}</section>
+                            <h1>{this.props.show.name}</h1>
+                            Reviews
                         </div>
-                    </div>
-                    <div>
-                        Edit
-                    </div>
+                        <div>
+                            Extra stuff
+                        </div>
+                    </section>
+                    <section className="attraction-show-bot">
+                        <div>
+                            <h2>Overview</h2>
+                            <div>
+                                <section>{this.props.show.about}</section>
+                                <section>Address: {address}</section>
+                            </div>
+                        </div>
+                        <div>
+                            Edit
+                        </div>
+                    </section>
                 </div>
+                <figure>
+                    <img src={this.props.show.photoUrls[0]}/>
+                </figure>
             </div>
         )
     }

@@ -6,7 +6,7 @@ const AttractionsIndexItem = (props) => {
         <li>
             <article className="attractions-index-item">
                 <figure>
-                    <img src={window.stockURL}/>
+                    <img src={props.attraction.photoUrls[0]}/>
                 </figure>
                 <div>
                     <ul>

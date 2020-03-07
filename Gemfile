@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo'
 gem 'figaro'
+gem 'aws-sdk-s3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

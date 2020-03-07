@@ -1,19 +1,19 @@
 class Api::AttractionsController < ApplicationController
     def index
-        @attractions = Attraction.all
-        @attractions = Attraction.in_bounds(params[:filters][:bounds])
+        # @attractions = Attraction.all
+        @attractions = Attraction.with_attached_photos.in_bounds(params[:filters][:bounds])
         render :index
     end
 
     def show
         # debugger
-        @attraction = Attraction.find_by(id: params[:id])
+        @attraction = Attraction.with_attached_photos.find_by(id: params[:id])
         if @attraction.nil?
             render json: ['Attraction does not exist'], status: 404 
         else
             lat = @attraction.coordinates.y
             lng = @attraction.coordinates.x
-            @nearby = Attraction.radius(lng, lat, params[:id])
+            @nearby = Attraction.with_attached_photos.radius(lng, lat, params[:id])
             render :show
         end
     end
