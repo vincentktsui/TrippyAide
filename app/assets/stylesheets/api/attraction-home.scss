@@ -1,0 +1,40 @@
+
+.filters {
+    width: 330px;
+    background: white;
+    margin-right: 15px;
+    
+}
+
+.attractions-home {
+    display: flex;
+}
+
+.attraction-listings > ul > li {
+    background: white;
+    margin-bottom: 15px;
+    height: 200px;
+}
+
+.attraction-listings {
+    width: 100%;
+}
+
+.attractions-home .attractions-index-item img {
+    width: 220px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.attractions-home .attractions-index-item figure {
+    margin-right: 15px;
+}
+
+.attractions-home .attractions-index-item {
+    display: flex;
+}
+
+.attractions-home .attractions-index-item div {
+    width: 100%;
+    padding: 10px 0;
+}

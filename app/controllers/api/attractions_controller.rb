@@ -1,7 +1,11 @@
 class Api::AttractionsController < ApplicationController
     def index
-        # @attractions = Attraction.all
-        @attractions = Attraction.with_attached_photos.in_bounds(params[:filters][:bounds])
+        # debugger
+        if (!params[:filters])
+            @attractions = Attraction.all
+        else 
+            @attractions = Attraction.with_attached_photos.in_bounds(params[:filters][:bounds])
+        end
         render :index
     end
 

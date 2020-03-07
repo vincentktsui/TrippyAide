@@ -31,14 +31,23 @@
     height: 100vh;
 }
 
-.attractions-index-item img {
+.full-map-container .attractions-index-item img {
     width: 100px;
     height: 100px;
     object-fit: cover;
 }
 
-.attractions-index-item figure {
+.full-map-container .attractions-index-item figure {
     margin-right: 10px;
+}
+
+.full-map-container .attractions-index-item {
+    display: flex;
+    padding: 15px;
+}
+
+.full-map-container .attractions-index-item div {
+    width: 100%;
 }
 
 
@@ -60,7 +69,3 @@
     // height: 20px;
 }
 
-.attractions-index-item {
-    display: flex;
-    padding: 15px;
-}

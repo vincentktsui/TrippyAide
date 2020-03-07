@@ -18,12 +18,12 @@ class AttractionsShow extends React.Component {
         if (Object.keys(this.props.show).length === 0) {
             return null;
         }
-        debugger
+        // debugger
         const address = Util.addressMaker(this.props.show);
         
         return (
-            <div>
-                <div className="attraction-show-outer">
+            <div className="attraction-show-outer">
+                <div>
                     <section className='attraction-show-top'>
                         <div>
                             <h1>{this.props.show.name}</h1>

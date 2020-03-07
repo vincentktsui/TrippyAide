@@ -1,4 +1,5 @@
 export const fetchAttractions = (filters) => {
+    // debugger
     // 
     return $.ajax({
         method: 'GET',

@@ -12,7 +12,14 @@ class AttractionsMap extends React.Component {
         
         if (this.props.type === 'static') {
 
-            this.map = new google.maps.Map(this.mapNode, {zoom: 13.5});
+            this.map = new google.maps.Map(this.mapNode, {
+                zoom: 13, 
+                gestureHandling: 'greedy',
+                mapTypeControl: false,
+                streetViewControl: false,
+                clickableIcons: false,
+
+            });
             this.MarkerManager = new MarkerManager(this.map);
             // this.MarkerManager.updateMarkers(this.props.show)
             // this.MarkerManager.updateMarkers(this.props.attractions);
@@ -21,7 +28,13 @@ class AttractionsMap extends React.Component {
         else {
             const mapOptions = {
                 center: { lat: 37.7858, lng: -122.435 }, // this is SF
-                zoom: 13
+                zoom: 13,
+                gestureHandling: 'greedy',
+                mapTypeControl: false,
+                streetViewControl: false,
+                clickableIcons: false,
+
+
             };
             // set the map to show SF
             // wrap this.mapNode in a Google Map

@@ -1,0 +1,50 @@
+.attraction-show-outer {
+    width: 100%;
+    height: 552px;
+    display: flex;
+    margin: 50px 0;
+}
+
+.attraction-show-outer > div:first-child {
+    width: 500px;
+    height: 100%;
+    background: white;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.attraction-show-outer > figure {
+    // width: 100%;
+    height: 100%;
+}
+
+.attraction-show-outer img {
+    width: 770px;
+    height: 550px;
+    object-fit: cover;
+}
+
+.attraction-show-top h1 {
+    line-height: 36px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.attraction-show-top {
+    margin-bottom: 20px;
+}
+
+.attraction-show-bot {
+    color: #4a4a4a;
+}
+.attraction-show-bot h2 {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.attraction-show-bot section {
+    margin: 20px 0; 
+    // font-size: 14px;
+    line-height: 18px;
+}
