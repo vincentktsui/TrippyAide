@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo'
 gem 'figaro'
-gem 'activestorage'
+# gem 'activestorage'
 gem 'aws-sdk-s3', require: false
 
 # Use ActiveStorage variant
