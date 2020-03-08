@@ -9,8 +9,9 @@
     left: 0;
     right: 0;
     // background-color: black;
+    // display: flex;
     z-index: 2;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .full-map-container > aside {
@@ -19,6 +20,7 @@
     left: 0;
     background-color: #eee;
     width: 300px;
+    overflow-y: auto;
     height: 100%;
 }
 
