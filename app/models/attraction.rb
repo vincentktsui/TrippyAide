@@ -1,6 +1,7 @@
 class Attraction < ApplicationRecord
 
     has_many_attached :photos
+    
     def self.in_bounds(bounds)
         north = bounds['northEast']['lat'];
         east = bounds['northEast']['lng'];
