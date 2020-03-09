@@ -21,8 +21,8 @@ const App = () => (
                 )
             }} />
             <Switch>
-                <Route path="/attractions/:attractionId" component={ShowContainer} />
-                <Route path="/attractions" component={AttractionHomeContainer}/>
+                <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
+                <Route exact path="/attractions" component={AttractionHomeContainer}/>
             </Switch>
             <Route exact path="/attractions/map" component={SearchContainer} />
             <Link to="/attractions"></Link>

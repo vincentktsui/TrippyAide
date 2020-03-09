@@ -1,7 +1,11 @@
+import BubbleOverlay from './bubble_overlay';
+
 class MarkerManager {
     constructor(map) {
         this.map = map;
         this.markers = {};
+        this.bubbles = {};
+        this.clickbubbles = {};
         this.removeMarker = this.removeMarker.bind(this);
         this.createMarkerFromAttraction = this.createMarkerFromAttraction.bind(this);
     }
@@ -51,11 +55,21 @@ class MarkerManager {
             map: this.map,
             icon: icon
         })
+        // debugger
+
+        const bubble = new BubbleOverlay({ map: this.map, location: pos, arrowSize: 0 });
+        this.bubbles[attraction.id] = bubble;
+        const clickbubble = new BubbleOverlay({ map: this.map, location: pos})
+        this.clickbubbles[attraction.id] = clickbubble;
+
         marker.addListener('mouseover', () => {
-            console.log('hovering');
+            bubble.setMap(bubble.options.map);
+        })
+        marker.addListener('mouseout', () => {
+            bubble.setMap(null);
         })
         marker.addListener('click', () => {
-            console.log('clicked');
+            clickbubble.setMap(bubble.options.map);
         })
         // google.maps.event.addListener()
 
@@ -65,8 +79,11 @@ class MarkerManager {
     removeMarker(id) {
         // debugger
         this.markers[id].setMap(null);
-        delete this.markers[id]
+        delete this.markers[id];
+        this.bubbles[id].setMap(null);
+        delete this.bubbles[id];
     }
+
 }
 
 export default MarkerManager
