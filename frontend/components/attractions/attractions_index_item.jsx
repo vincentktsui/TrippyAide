@@ -3,12 +3,13 @@ import * as Util from '../../util/util';
 import { Link } from 'react-router-dom';
 const AttractionsIndexItem = (props) => {
     // 
+    const imgsrc = (props.attraction.photoUrls[0]) ? props.attraction.photoUrls[0] : window.stockURL
     return (
         <li>
             <article className="attractions-index-item">
                 <figure>
                     <Link to={`/attractions/${props.attraction.id}`}>
-                        <img src={props.attraction.photoUrls[0]}/>
+                        <img src={imgsrc}/>
                     </Link>
                 </figure>
                 <div>
@@ -18,7 +19,7 @@ const AttractionsIndexItem = (props) => {
                             >{props.attraction.name}</Link>
                         </li>
                         {/* <li>{Util.addressMaker(props.attraction)}</li> */}
-                        <li>Reviews</li>
+                        <li>{props.attraction.avg_rating}</li>
                     </ul>
                 </div>
 

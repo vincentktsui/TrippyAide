@@ -20,14 +20,15 @@ class AttractionsShow extends React.Component {
         }
         // debugger
         const address = Util.addressMaker(this.props.show);
-        
+        const imgsrc = (this.props.show.photoUrls[0]) ? this.props.show.photoUrls[0] : window.stockURL
+
         return (
             <div className="attraction-show-outer">
                 <div>
                     <section className='attraction-show-top'>
                         <div>
                             <h1>{this.props.show.name}</h1>
-                            Reviews
+                            {this.props.show.average_rating}
                         </div>
                         <div>
                             Extra stuff
@@ -47,7 +48,7 @@ class AttractionsShow extends React.Component {
                     </section>
                 </div>
                 <figure>
-                    <img src={this.props.show.photoUrls[0]}/>
+                    <img src={imgsrc}/>
                 </figure>
             </div>
         )

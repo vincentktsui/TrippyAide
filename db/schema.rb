@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_214741) do
+ActiveRecord::Schema.define(version: 2020_03_09_205606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,26 @@ ActiveRecord::Schema.define(version: 2020_03_06_214741) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "attraction_reviews", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.integer "rating", null: false
+    t.date "visit_date"
+    t.integer "author_id", null: false
+    t.integer "attraction_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_attraction_reviews_on_attraction_id"
+    t.index ["author_id"], name: "index_attraction_reviews_on_author_id"
+  end
+
   create_table "attractions", force: :cascade do |t|
     t.string "name", null: false
     t.string "country", null: false
     t.string "administrative_area", null: false
-    t.string "locality", null: false
-    t.string "postal_code", null: false
-    t.string "thoroughfare", null: false
+    t.string "locality"
+    t.string "postal_code"
+    t.string "thoroughfare"
     t.geography "coordinates", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.text "about"
     t.integer "owner_id"

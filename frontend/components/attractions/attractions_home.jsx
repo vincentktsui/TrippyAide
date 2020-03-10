@@ -11,7 +11,9 @@ class AttractionsHome extends React.Component {
         if (Object.keys(this.props.attractions).length === 0) {
             return null;
         }
+        // debugger
         const attractions = Object.values(this.props.attractions)
+            .sort( (a,b) => b.avg_rating - a.avg_rating)
             .map(attraction => <AttractionsIndexItem key={attraction.id}
                 attraction={attraction} />);
         return (

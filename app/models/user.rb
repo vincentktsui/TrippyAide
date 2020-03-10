@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_many :reviews,
+        foreign_key: :author_id,
+        class_name: :AttractionReview
+
     has_one_attached :profile_pic
 
     has_many_attached :posted_photos
