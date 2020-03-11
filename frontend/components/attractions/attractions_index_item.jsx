@@ -1,9 +1,12 @@
 import React from 'react';
 import * as Util from '../../util/util';
 import { Link } from 'react-router-dom';
+import Star from '../star';
 const AttractionsIndexItem = (props) => {
     // 
     const imgsrc = (props.attraction.photoUrls[0]) ? props.attraction.photoUrls[0] : window.stockURL
+    const rating = Math.round(props.attraction.avg_rating * 2) / 2;
+
     return (
         <li>
             <article className="attractions-index-item">
@@ -19,7 +22,7 @@ const AttractionsIndexItem = (props) => {
                             >{props.attraction.name}</Link>
                         </li>
                         {/* <li>{Util.addressMaker(props.attraction)}</li> */}
-                        <li>{props.attraction.avg_rating}</li>
+                        <li><Star rating={rating}/></li>
                     </ul>
                 </div>
 

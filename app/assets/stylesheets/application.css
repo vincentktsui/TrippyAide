@@ -44,3 +44,24 @@ background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 .black-button:hover {
     background-color: #292929;
 }
+
+.black-button:disabled {
+    display: inline-block;
+    color: #666666;
+    background: transparent;
+    cursor: default;
+    border: 1px solid #666666;
+
+}
+
+.fa-star-half-o {
+    color: #00aa6c;
+}
+
+.fa-star-o {
+    color: #00aa6c;
+}
+
+.fa-star {
+    color: #00aa6c;
+}

@@ -16,6 +16,13 @@
     height: 200px;
 }
 
+.attraction-listings > ul > li:last-child {
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
 .attraction-listings {
     width: 100%;
 }

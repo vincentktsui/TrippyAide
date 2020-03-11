@@ -1,6 +1,7 @@
 import React from 'react';
 import AttractionsMap from './attractions_map';
 import AttractionsShow from './attractions_show';
+import AttractionsReview from './attractions_review';
 // import FilterForm from './filter_form';
 
 class Show extends React.Component {
@@ -52,6 +53,8 @@ class Show extends React.Component {
                     show={this.props.show}
                     // updateFilter={props.updateFilter} 
                     />
+                <AttractionsReview 
+                    reviews={this.props.reviews}/>
             </div>
         )
     }

@@ -16,15 +16,16 @@
 #  updated_at          :datetime         not null
 #
 class Attraction < ApplicationRecord
-    attr_accessor :avg_rating
-    after_find :set_avg_rating
+    attr_accessor :avg_rating, :num_rating
+    after_find :set_rating 
     has_many :reviews,
         foreign_key: :attraction_id,
         class_name: :AttractionReview
     has_many_attached :photos
 
-    def set_avg_rating
+    def set_rating
         self.avg_rating = AttractionReview.where(attraction_id: self.id).average(:rating)
+        self.num_rating = AttractionReview.where(attraction_id: self.id).count(:rating)
     end
     
     def self.in_bounds(bounds)

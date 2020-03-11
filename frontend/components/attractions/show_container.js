@@ -7,7 +7,8 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ entities, ui }) => ({
     attractions: entities.attractions,
-    show: ui.attraction
+    show: ui.attraction,
+    reviews: entities.reviews,
 });
 
 const mapDispatchToProps = dispatch => ({
