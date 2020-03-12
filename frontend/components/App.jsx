@@ -15,19 +15,19 @@ const App = () => (
             <NavBarContainer />
         </header>
         <div className="main-content">
-            <Route exact path="/" render={ props => {
+            <Route exact path="/" render={props => {
                 return (
                     <Link to="/attractions">Attractions</Link>
                 )
             }} />
             <Switch>
-                <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
-                <Route exact path="/attractions" component={AttractionHomeContainer}/>
+            <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
+            <Route path="/attractions" component={AttractionHomeContainer} />
             </Switch>
-            <Route exact path="/attractions/map" component={SearchContainer} />
+            <Route path="/attractions/map" component={SearchContainer} />
             <Link to="/attractions"></Link>
-            <AuthRoute path="/:url?/login" component={LoginFormContainer} />
-            <AuthRoute path="/:url?/signup" component={SignupFormContainer} />
+            <AuthRoute path="/:url?/:id?/login" component={LoginFormContainer} />
+            <AuthRoute path="/:url?/:id?/signup" component={SignupFormContainer} />
         </div>
         <footer>
 

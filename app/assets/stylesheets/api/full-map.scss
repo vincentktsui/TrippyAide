@@ -18,7 +18,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #eee;
+    // background-color: #eee;
+    background-color: purple;
     width: 300px;
     overflow-y: auto;
     height: 100%;
@@ -45,7 +46,7 @@
 
 .full-map-container .attractions-index-item {
     display: flex;
-    padding: 15px;
+    padding: 10px;
 }
 
 .full-map-container .attractions-index-item div {
@@ -55,7 +56,7 @@
 
 .attractions-map-list li {
     background-color: white;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .attractions-map-list > ul > li:first-child {

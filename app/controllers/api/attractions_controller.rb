@@ -11,7 +11,7 @@ class Api::AttractionsController < ApplicationController
 
     def show
         # debugger
-        @attraction = Attraction.with_attached_photos.includes([:reviews]).find_by(id: params[:id])
+        @attraction = Attraction.with_attached_photos.includes(reviews: :author).find_by(id: params[:id])
         if @attraction.nil?
             render json: ['Attraction does not exist'], status: 404 
         else

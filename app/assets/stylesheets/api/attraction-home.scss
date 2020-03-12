@@ -1,10 +1,26 @@
 
 .filters {
-    width: 330px;
+    width: 400px;
     background: white;
     margin-right: 15px;
-    
+    padding: 10px;
+    height: 550px;
 }
+
+.filters > div{
+    padding: 10px 0;
+    border-bottom: 1px solid #b5b5b5;
+}
+
+.filters > div > span {
+    font-weight: bold;
+}
+
+.filters ul > li {
+    margin: 5px 0;
+    margin-left: 20px;
+}
+
 
 .attractions-home {
     display: flex;

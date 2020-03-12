@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        debugger
+        // debugger
         const emailplaceholder = (this.props.formType === 'signup') ? 
             "Email (valid emails only)" : '';
         const passwordplaceholder = (this.props.formType === 'signup') ? 
@@ -38,7 +38,8 @@ class SessionForm extends React.Component {
         // 
         const temp = (this.props.match.params.url) ? 
             (this.props.match.params.url) : '';
-        const closeurl = '/' + temp; 
+        const id = (this.props.match.params.id) ? '/'+(this.props.match.params.id) : '';
+        const closeurl = '/' + temp + id; 
         let stripped = this.props.match.url.split('/');
         stripped.pop();
         stripped = stripped.join('/');

@@ -14,7 +14,7 @@ end
 json.reviews do 
     @attraction.reviews.each do |review|
         json.set! review.id do 
-            json.partial! 'api/reviews/review', review: review
+            json.partial! 'api/reviews/review', review: review, user: review.author
         end
     end
 end

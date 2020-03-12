@@ -1,22 +1,28 @@
 import BubbleOverlay from './bubble_overlay';
 
 class MarkerManager {
-    constructor(map) {
+    constructor(map, type) {
         this.map = map;
+        this.type = type;
         this.markers = {};
         this.bubbles = {};
         this.clickbubbles = {};
         this.removeMarker = this.removeMarker.bind(this);
         this.createMarkerFromAttraction = this.createMarkerFromAttraction.bind(this);
+        this.clearClicked = this.clearClicked.bind(this);
+    }
+
+    clearClicked() {
+        Object.values(this.clickbubbles).forEach( clickbubble => clickbubble.setMap(null));
     }
 
     updateMarkers(attractions) {
         let that = this;
-        Object.keys(this.markers).forEach( id => {
+        Object.keys(this.markers).forEach(id => {
             if (
                 (!attractions[id])
                 || (this.markers[id].icon.url === window.attractionMainURL)
-             ) {
+            ) {
                 that.removeMarker(id);
             }
         });
@@ -43,8 +49,8 @@ class MarkerManager {
     // }
 
     createMarkerFromAttraction(attraction, icon) {
-        icon = (icon) ? { url: icon, scaledSize: new google.maps.Size(50,50) } :
-         {url: window.attractionSmallURL, scaledSize: new google.maps.Size(25,30)};
+        icon = (icon) ? { url: icon, scaledSize: new google.maps.Size(50, 50) } :
+            { url: window.attractionSmallURL, scaledSize: new google.maps.Size(25, 30) };
 
         if (this.markers[attraction.id]) {
             this.removeMarker(attraction.id)
@@ -57,19 +63,24 @@ class MarkerManager {
         })
         // debugger
 
-        const bubble = new BubbleOverlay({ map: this.map, location: pos, arrowSize: 0 });
+        const bubble = new BubbleOverlay({ map: this.map, location: pos, arrowSize: 5 }, attraction, 'hover');
         this.bubbles[attraction.id] = bubble;
-        const clickbubble = new BubbleOverlay({ map: this.map, location: pos})
+        const clickbubble = new BubbleOverlay({ map: this.map, location: pos, contentHeight: 300 }, attraction, 'click')
         this.clickbubbles[attraction.id] = clickbubble;
 
         marker.addListener('mouseover', () => {
             bubble.setMap(bubble.options.map);
+            if (this.type === 'dynamic') {
+                // debugger
+                document.getElementById(`attraction-${attraction.id}`).scrollIntoView({ behavior: "smooth", block: "center" });
+            }
         })
         marker.addListener('mouseout', () => {
             bubble.setMap(null);
         })
         marker.addListener('click', () => {
-            clickbubble.setMap(bubble.options.map);
+            this.clearClicked();
+            clickbubble.setMap(clickbubble.options.map);
         })
         // google.maps.event.addListener()
 
@@ -82,6 +93,8 @@ class MarkerManager {
         delete this.markers[id];
         this.bubbles[id].setMap(null);
         delete this.bubbles[id];
+        this.clickbubbles[id].setMap(null);
+        delete this.clickbubbles[id];
     }
 
 }

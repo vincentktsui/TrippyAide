@@ -1,0 +1,64 @@
+
+// bubble-overlay-content > div {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     z-index: 2;
+//     width: calc(100vw - 300px);
+//     height: 100vh;
+// }
+.bubble-overlay-click a, .bubble-overlay-hover a {
+
+}
+
+.bubble-overlay-hover {
+    display: flex;
+    font-size: 12px;
+    color: #4a4a4a;
+    cursor: default;
+}
+.bubble-overlay-hover img {
+    width: 80px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.bubble-overlay-hover figure {
+    margin-right: 5px;
+}
+
+.bubble-overlay-hover li {
+    margin: 5px 0;
+}
+
+.bubble-overlay-hover li:first-child {
+    font-weight: bold;
+}
+
+.bubble-overlay-click {
+    // display: flex;
+    font-size: 14px;
+    color: #4a4a4a;
+    cursor: default;
+}
+.bubble-overlay-click img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.bubble-overlay-click figure {
+    margin-bottom: 5px;
+}
+
+.bubble-overlay-click li {
+    margin: 5px 0;
+}
+
+.bubble-overlay-click ul {
+    padding: 0 10px;
+}
+
+.bubble-overlay-click li:first-child {
+    font-weight: bold;
+}

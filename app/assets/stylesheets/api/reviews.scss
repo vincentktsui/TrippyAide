@@ -1,0 +1,24 @@
+.reviews-tab {
+    width: 600px;
+}
+
+.reviews-tab > ul > li {
+    background: white;
+    background: transparent;
+    border: 1px solid white;
+    color: midnightblue;
+    margin-bottom: 15px;
+}
+
+.reviews-tab > ul > li:last-child {
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+}
+
+.review-item {
+    padding: 15px;
+}
+.review-item ul li {
+    margin: 5px 0;
+}

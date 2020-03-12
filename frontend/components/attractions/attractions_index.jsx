@@ -11,7 +11,8 @@ class AttractionsIndex extends React.Component {
         // 
         const attractions = Object.values(this.props.attractions)
             .map(attraction => <AttractionsIndexItem key={attraction.id} 
-                                attraction={attraction} />);
+                                attraction={attraction}
+                                type="full-map" />);
         return (
             <aside className="attractions-map-list">
                 <ul>

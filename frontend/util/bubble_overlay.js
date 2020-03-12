@@ -1,18 +1,21 @@
+import React from 'react';
+import Star from './star';
 class BubbleOverlay extends google.maps.OverlayView {
 
-    constructor(options) {
+    constructor(options, attraction, type) {
         // Initialize all properties.
         super(options);
         this.options = {};
-
+        this.type = type;
+        this.attraction = attraction;
         this.options.map = options.map;
         this.options.location = options.location;
         this.options.borderColor = options.borderColor || '#d6d6d6';
         this.options.borderWidth = options.borderWidth || 1;
         this.options.backgroundColor = options.backgroundColor || '#fff';
         this.options.arrowSize = options.arrowSize || 10;
-        this.options.contentHeight = options.contentHeight || 100;
-        this.options.contentWidth = options.contentWidth || 200;
+        this.options.contentHeight = options.contentHeight || 70;
+        this.options.contentWidth = options.contentWidth || 300;
         this.options.zIndex = options.zIndex || 1000;
         this.options.onClose = options.onClose;
         // Explicitly call setMap on this overlay.
@@ -58,7 +61,32 @@ class BubbleOverlay extends google.maps.OverlayView {
         content.style.width = this.px(this.options.contentWidth);
         content.style.height = this.px(this.options.contentHeight);
         content.style.position = 'relative';
-        content.className = 'bubble-overlay-content';
+        const imgsrc = (this.attraction.photoUrls[0]) ? this.attraction.photoUrls[0] : window.stockURL
+        const figure = document.createElement('figure');
+        const a = document.createElement('a');
+        a.innerHTML = `<a href="#/attractions/${ this.attraction.id }"><img src=${imgsrc}/></a>`
+        figure.appendChild(a);
+        const list = document.createElement('ul');
+        const name = document.createElement('li');
+        const rating = Math.round(this.attraction.avg_rating * 2) / 2;
+        const ratingspan = Star(rating);
+        
+        const temp = document.createElement('li');
+        temp.innerHTML = ratingspan + `<span>&nbsp;&nbsp;${this.attraction.num_rating} reviews</span>`;
+        name.innerHTML = `<a href="#/attractions/${this.attraction.id}">${this.attraction.name}</a>`;
+        // debugger
+        list.appendChild(name);
+        list.appendChild(temp);
+        content.appendChild(figure);
+        content.appendChild(list);
+
+        
+        if (this.type === 'hover') {
+            content.className = 'bubble-overlay-hover';
+        }
+        else if (this.type === 'click') {
+            content.className = 'bubble-overlay-click'
+        }
 
         return content;
     }
@@ -149,7 +177,6 @@ class BubbleOverlay extends google.maps.OverlayView {
     /* Pan the map to fit the InfoBox.
      */
     // panMap() {
-    //     debugger
     //     // if we go beyond map, pan map
     //     const map = this.options.map;
     //     const bounds = map.getBounds();
@@ -206,6 +233,7 @@ class BubbleOverlay extends google.maps.OverlayView {
     //     // The new map center
     //     const centerX = center.lng() - shiftLng;
     //     const centerY = center.lat() - shiftLat;
+
 
     //     // center the map to the new shifted center
     //     map.setCenter(new google.maps.LatLng(centerY, centerX));

@@ -46,7 +46,48 @@ class AttractionsHome extends React.Component {
                     <button className='black-button'>View Map</button>
                 </Link>
                 <div className="attractions-home">
-                    <aside className="filters">Filters</aside>
+
+                    <aside className="filters">
+                        <div>
+                            <input type="checkbox" /><span>{'Sights & Landmarks'}</span>
+                            <ul>
+                                <li><input type="checkbox" /><span>{'Landmarks'}</span></li>
+                                <li><input type="checkbox" /><span>{'Architectural Buildings'}</span></li>
+                                <li><input type="checkbox" /><span>{'Monuments & Statues'}</span></li>
+                                <li><input type="checkbox" /><span>{'Historic Sites'}</span></li>
+                                <li><input type="checkbox" /><span>{'Sacred & Religious Sites'}</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <input type="checkbox" /><span>{'Nature & Parks'}</span>
+                            <ul>
+                                <li><input type="checkbox" /><span>{'Parks'}</span></li>
+                                <li><input type="checkbox" /><span>{'Beaches'}</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <input type="checkbox" /><span>{'Museums'}</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" /><span>{'Zoos & Aquariums'}</span>
+                            <ul>
+                                <li><input type="checkbox" /><span>{'Zoos'}</span></li>
+                                <li><input type="checkbox" /><span>{'Aquariums'}</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <input type="checkbox" />{'Rating'}
+                            <ul>
+                                <li><input type="checkbox" />{'5'}</li>
+                                <li><input type="checkbox" />{'4'}</li>
+                                <li><input type="checkbox" />{'3'}</li>
+                                <li><input type="checkbox" />{'2'}</li>
+                                <li><input type="checkbox" />{'1'}</li>
+                            </ul>
+                        </div>
+                    
+                    </aside>
+
                     <section className="attraction-listings">
                         <ul>
                             {attractions}

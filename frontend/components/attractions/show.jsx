@@ -15,6 +15,7 @@ class Show extends React.Component {
         // this.map = new google.maps.Map(this.mapNode);
     }
     componentDidMount() {
+        window.scrollTo( {top: 0} );
         this.props.fetchAttraction(this.props.match.params.attractionId);
     }
     componentDidUpdate(prevProps) {
@@ -24,6 +25,7 @@ class Show extends React.Component {
                 this.props.match.params.attractionId).then(
                     // this.setState({ attractionId: this.props.match.params.attractionId,})
                 );
+            window.scrollTo({ top: 0 });
         }
         // if (this.props.show !== prevProps.show) {
         //     this.setState({dataLoaded: true})

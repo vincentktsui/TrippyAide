@@ -20,7 +20,7 @@ class AttractionsMap extends React.Component {
                 clickableIcons: false,
 
             });
-            this.MarkerManager = new MarkerManager(this.map);
+            this.MarkerManager = new MarkerManager(this.map, 'static');
             // this.MarkerManager.updateMarkers(this.props.show)
             // this.MarkerManager.updateMarkers(this.props.attractions);
 
@@ -39,7 +39,7 @@ class AttractionsMap extends React.Component {
             // set the map to show SF
             // wrap this.mapNode in a Google Map
             this.map = new google.maps.Map(this.mapNode, mapOptions);
-            this.MarkerManager = new MarkerManager(this.map);
+            this.MarkerManager = new MarkerManager(this.map, 'dynamic');
             // 
             let that = this;
             google.maps.event.addListener(this.map, 'idle', () => {
@@ -54,14 +54,10 @@ class AttractionsMap extends React.Component {
                 that.props.updateFilter("bounds", bounds);
             });
             // debugger
-            // google.maps.event.addListener(this.map, 'click', (event) => {
-            //     const coords = event.latLng
-            //     that.props.history.push({
-            //         pathname: "benches/new",
-            //         search: `lat=${coords.lat()}&lng=${coords.lng()}`
-            //     });
-            // });
         }
+        google.maps.event.addListener(this.map, 'click', (event) => {
+            this.MarkerManager.clearClicked();
+        });
 
     }
     componentDidUpdate() {
