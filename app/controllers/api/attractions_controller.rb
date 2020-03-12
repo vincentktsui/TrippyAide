@@ -2,16 +2,24 @@ class Api::AttractionsController < ApplicationController
     def index
         # debugger
         if (!params[:filters])
-            @attractions = Attraction.all
-        else 
-            @attractions = Attraction.with_attached_photos.in_bounds(params[:filters][:bounds])
+            @attractions = Attraction.with_attached_photos.includes(:categories).all
+        else
+            if params[:filters][:bounds]
+                @attractions = Attraction.with_attached_photos.in_bounds(params[:filters][:bounds])
+            end
+            # if params[:filters][:categories]
+            #     @attractions = Attraction.none;
+            #     params[:filters][:categories].each do |category|
+            #         @attractions = @attractions.or(Attraction.includes(:categories).where(categories: {category: category} ))
+            #     end
+            # end
         end
         render :index
     end
 
     def show
         # debugger
-        @attraction = Attraction.with_attached_photos.includes(reviews: :author).find_by(id: params[:id])
+        @attraction = Attraction.with_attached_photos.includes(:categories, reviews: :author).find_by(id: params[:id])
         if @attraction.nil?
             render json: ['Attraction does not exist'], status: 404 
         else

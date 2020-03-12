@@ -3,6 +3,8 @@ json.set!(:lng, attraction.coordinates.x)
 json.extract! attraction, :id, :name, :thoroughfare, :locality, 
     :administrative_area, :postal_code, :country, :about, :avg_rating, :num_rating
 json.photoUrls attraction.photos.map {|file| url_for(file)}
+# debugger
+json.categories attraction.categories.map {|category| category.category}
 
 # json.array!(attraction.photos.attachments) do |photo|
 #     json.image_url url_for(photo)

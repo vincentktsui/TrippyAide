@@ -2,6 +2,7 @@ import * as AttractionUtil from '../util/attraction_api_util';
 import { fetchAttractions } from './attraction_actions';
 
 export const UPDATE_FILTER = 'UPDATE_FILTER';
+// export const DELETE_FILTER = 'DELETE_FILTER';
 
 
 // standard actions
@@ -15,6 +16,14 @@ export const changeFilter = (filter, value) => {
     value
     });
 }
+// export const deleteFilter = (filter, value) => {
+//     // debugger
+//     return ({
+//     type: DELETE_FILTER,
+//     filter,
+//     value
+//     });
+// }
 
 export const updateFilter = (filter, value) => {
     return (dispatch, getState) => {
@@ -23,6 +32,13 @@ export const updateFilter = (filter, value) => {
         // delicious curry!
     };
 }
+// export const removeFilter = (filter, value) => {
+//     return (dispatch, getState) => {
+//         dispatch(deleteFilter(filter, value));
+//         return fetchAttractions(getState().ui.filters)(dispatch);
+//         // delicious curry!
+//     };
+// }
 
 
 // export const filterBounds = (filter) => {

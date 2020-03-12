@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_205606) do
+ActiveRecord::Schema.define(version: 2020_03_12_000610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 2020_03_09_205606) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "attraction_categories", force: :cascade do |t|
+    t.integer "attraction_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id", "category_id"], name: "index_attraction_categories_on_attraction_id_and_category_id", unique: true
   end
 
   create_table "attraction_reviews", force: :cascade do |t|
@@ -64,6 +72,12 @@ ActiveRecord::Schema.define(version: 2020_03_09_205606) do
     t.datetime "updated_at", null: false
     t.index ["coordinates"], name: "index_attractions_on_coordinates", using: :gist
     t.index ["owner_id"], name: "index_attractions_on_owner_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

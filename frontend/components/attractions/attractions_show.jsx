@@ -14,7 +14,9 @@ class AttractionsShow extends React.Component {
     //                 this.props.match.params.attractionId);
     //     }
     // }
-
+    scrollToReviews() {
+        document.querySelector('.reviews-tab').scrollIntoView({behavior: 'smooth'});
+    }
     
     render() {
         if (Object.keys(this.props.show).length === 0) {
@@ -24,19 +26,20 @@ class AttractionsShow extends React.Component {
         const address = Util.addressMaker(this.props.show);
         const imgsrc = (this.props.show.photoUrls[0]) ? this.props.show.photoUrls[0] : window.stockURL;
         const rating = Math.round(this.props.show.avg_rating * 2) / 2;
+        const categories = this.props.show.categories.join(', ');
         return (
             <div className="attraction-show-outer">
                 <div>
                     <section className='attraction-show-top'>
                         <div>
                             <h1>{this.props.show.name}</h1>
-                            <div>
+                            <div onClick={this.scrollToReviews}>
                                 <Star rating={rating}/>
-                                <span>{this.props.show.num_rating} Reviews</span>
+                                <span>&nbsp;&nbsp;{this.props.show.num_rating} Reviews</span>
                             </div>
                         </div>
                         <div>
-                            Extra stuff
+                            {categories}
                         </div>
                     </section>
                     <section className="attraction-show-bot">
@@ -44,12 +47,12 @@ class AttractionsShow extends React.Component {
                             <h2>Overview</h2>
                             <div>
                                 <section>{this.props.show.about}</section>
-                                <section>Address: {address}</section>
+                                <section><span className="fa fa-map-marker"></span> Address: {address}</section>
                             </div>
                         </div>
-                        <div>
+                        {/* <div>
                             Edit
-                        </div>
+                        </div> */}
                     </section>
                 </div>
                 <figure>

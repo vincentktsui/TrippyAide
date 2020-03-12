@@ -23,6 +23,11 @@ class Attraction < ApplicationRecord
         class_name: :AttractionReview
     has_many_attached :photos
 
+    has_many :attraction_categories
+    has_many :categories,
+        through: :attraction_categories,
+        source: :category
+
     def set_rating
         self.avg_rating = AttractionReview.where(attraction_id: self.id).average(:rating)
         self.num_rating = AttractionReview.where(attraction_id: self.id).count(:rating)

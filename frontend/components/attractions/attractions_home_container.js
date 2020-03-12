@@ -10,6 +10,7 @@ const mapStateToProps = ({ entities }) => ({
 
 const mapDispatchToProps = dispatch => ({
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+    // removeFilter: (filter, value) => dispatch(removefilter(filter, value)),
     // fetchAttractions: () => dispatch(fetchAttractions()),
 });
 
