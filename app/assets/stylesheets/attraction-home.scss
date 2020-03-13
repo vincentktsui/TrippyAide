@@ -1,4 +1,22 @@
 
+.home-outer h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.map-button {
+    width: 200px;
+    height: 80px;
+    background: url('map.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
 .filters {
     width: 400px;
     background: white;

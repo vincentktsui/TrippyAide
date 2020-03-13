@@ -1,0 +1,56 @@
+.splash-top {
+    background: url('Beach.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 600px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-top > div {
+    padding-left: 20px; 
+    width: 170px;
+    height: 50px;
+    background-color: white;
+    font-size: 24px;
+    line-height: 50px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 10% / 50%;
+    box-shadow: 0 0 30px 8px #cccccc;
+}
+
+.splash-top > div:hover {
+    cursor: pointer;
+}
+
+.splash-top > div > span {
+    color: #00a680;
+}
+
+.splash-modal {
+    height: 0px;
+}
+
+.splash-search {
+    font-family: 'Open Sans';
+    position: relative;
+    margin: 0 auto;
+    z-index: 2;
+    top: 100px;
+    width: 340px;
+    // height:314px;
+    padding: 20px;
+    background-color: white;
+    box-sizing: content-box;
+}
+.splash-search input{
+    border: none;
+    font-size: 24px;
+}
+
+.splash-search li {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 10px 0;
+}

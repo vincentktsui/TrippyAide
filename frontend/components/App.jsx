@@ -8,24 +8,20 @@ import SearchContainer from './attractions/search_container';
 import ShowContainer from './attractions/show_container';
 import AttractionHomeContainer from './attractions/attractions_home_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import SplashContainer from './splash_container';
 
 const App = () => (
     <div>
         <header className="nav-bar-outer">
             <NavBarContainer />
         </header>
+        <Route exact path="/" component={SplashContainer}/>
         <div className="main-content">
-            <Route exact path="/" render={props => {
-                return (
-                    <Link to="/attractions">Attractions</Link>
-                )
-            }} />
             <Switch>
             <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
             <Route path="/attractions" component={AttractionHomeContainer} />
             </Switch>
             <Route path="/attractions/map" component={SearchContainer} />
-            <Link to="/attractions"></Link>
             <AuthRoute path="/:url?/:id?/login" component={LoginFormContainer} />
             <AuthRoute path="/:url?/:id?/signup" component={SignupFormContainer} />
         </div>

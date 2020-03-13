@@ -108,10 +108,14 @@ class AttractionsHome extends React.Component {
             attractions.length / 20) + 1) ? true : false;
         const prevdisabled = (this.state.page <= 1) ? true : false;
         return (
-            <div>
+            <div className='home-outer'>
+                <h1>Attractions</h1>
+                <div className='map-button'>
                 <Link to="/attractions/map">
                     <button className='black-button'>View Map</button>
                 </Link>
+
+                </div>
                 <div className="attractions-home">
                     <aside className="filters">
                         <div>
