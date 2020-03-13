@@ -1,7 +1,6 @@
 import { UPDATE_FILTER } from '../actions/filter_actions';
 
 const filtersReducer = (state = {bounds: {}}, action) => {
-    // debugger
     Object.freeze(state);
     let newState = Object.assign({}, state);
 

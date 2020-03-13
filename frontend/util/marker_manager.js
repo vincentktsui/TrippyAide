@@ -34,7 +34,6 @@ class MarkerManager {
         // 
     }
     // createMainMarker(attraction) {
-    //     // debugger
     //     if (this.markers[attraction.id]) {
     //         this.removeMarker(attraction.id);
     //     }
@@ -61,7 +60,6 @@ class MarkerManager {
             map: this.map,
             icon: icon
         })
-        // debugger
 
         const bubble = new BubbleOverlay({ map: this.map, location: pos, arrowSize: 5 }, attraction, 'hover');
         this.bubbles[attraction.id] = bubble;
@@ -71,7 +69,6 @@ class MarkerManager {
         marker.addListener('mouseover', () => {
             bubble.setMap(bubble.options.map);
             if (this.type === 'dynamic') {
-                // debugger
                 document.getElementById(`attraction-${attraction.id}`).scrollIntoView({ behavior: "smooth", block: "center" });
             }
         })
@@ -98,7 +95,6 @@ class MarkerManager {
     }
 
     removeMarker(id) {
-        // debugger
         this.markers[id].setMap(null);
         delete this.markers[id];
         this.bubbles[id].setMap(null);

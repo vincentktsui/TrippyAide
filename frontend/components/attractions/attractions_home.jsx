@@ -22,13 +22,11 @@ class AttractionsHome extends React.Component {
         // this.toggleAll = this.toggleAll.bind(this);
     }
     componentDidMount() {
-        // debugger
         this.props.updateFilter("bounds", {} );
         window.scrollTo({ top: 0 });
     }
 
     toggleAll() {
-        // debugger
         return (e) => {
             const state = Object.assign({}, this.state);
             if (!e.target.checked) {
@@ -78,7 +76,6 @@ class AttractionsHome extends React.Component {
 
 
     nextPage() {
-        // debugger
         if (this.state.page < Math.floor(
             Object.keys(this.props.attractions).length / 20) + 1) {
                 this.setState({page: this.state.page + 1});
@@ -93,7 +90,6 @@ class AttractionsHome extends React.Component {
         if (Object.keys(this.props.attractions).length === 0) {
             return null;
         }
-        // debugger
         const attractions = Object.values(this.props.attractions)
         .filter( attraction => (
             attraction.categories.some( cat => this.state.categories[cat])

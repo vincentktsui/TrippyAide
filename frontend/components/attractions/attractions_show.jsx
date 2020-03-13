@@ -22,7 +22,6 @@ class AttractionsShow extends React.Component {
         if (Object.keys(this.props.show).length === 0) {
             return null;
         }
-        // debugger
         const address = Util.addressMaker(this.props.show);
         const imgsrc = (this.props.show.photoUrls[0]) ? this.props.show.photoUrls[0] : window.stockURL;
         const rating = Math.round(this.props.show.avg_rating * 2) / 2;

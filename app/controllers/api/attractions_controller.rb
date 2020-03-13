@@ -1,6 +1,5 @@
 class Api::AttractionsController < ApplicationController
     def index
-        # debugger
         if (!params[:filters])
             @attractions = Attraction.with_attached_photos.includes(:categories).all
         else
@@ -18,7 +17,6 @@ class Api::AttractionsController < ApplicationController
     end
 
     def show
-        # debugger
         @attraction = Attraction.with_attached_photos.includes(:categories, reviews: :author).find_by(id: params[:id])
         if @attraction.nil?
             render json: ['Attraction does not exist'], status: 404 

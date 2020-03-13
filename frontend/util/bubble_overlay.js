@@ -74,7 +74,6 @@ class BubbleOverlay extends google.maps.OverlayView {
         const temp = document.createElement('li');
         temp.innerHTML = ratingspan + `<span>&nbsp;&nbsp;${this.attraction.num_rating} reviews</span>`;
         name.innerHTML = `<a href="#/attractions/${this.attraction.id}">${this.attraction.name}</a>`;
-        // debugger
         list.appendChild(name);
         list.appendChild(temp);
         content.appendChild(figure);

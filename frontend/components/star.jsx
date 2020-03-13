@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Star = (props) => {
-    // debugger
     switch(props.rating) {
         case 0:
             return (<span>

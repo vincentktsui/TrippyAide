@@ -12,7 +12,6 @@ class AttractionsReview extends React.Component {
     }
 
     nextPage() {
-        // debugger
         if (this.state.page < Math.floor(
             Object.keys(this.props.reviews).length / 20) + 1) {
             this.setState({ page: this.state.page + 1 });

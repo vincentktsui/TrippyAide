@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.fetchAttraction = fetchAttraction;
     window.store = store;
-    // debugger
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);
 });

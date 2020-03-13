@@ -1,6 +1,4 @@
 export const fetchAttractions = (filters) => {
-    // debugger
-    // 
     return $.ajax({
         method: 'GET',
         url: '/api/attractions',
@@ -17,7 +15,6 @@ export const fetchAttractions = (filters) => {
 // }
 
 export const fetchAttraction = (id) => {
-    // debugger
     return $.ajax({
         method: 'GET',
         url: `/api/attractions/${id}`,

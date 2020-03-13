@@ -9,7 +9,6 @@ export const UPDATE_FILTER = 'UPDATE_FILTER';
 
 
 export const changeFilter = (filter, value) => {
-    // debugger
     return ({
     type: UPDATE_FILTER,
     filter,
@@ -17,7 +16,6 @@ export const changeFilter = (filter, value) => {
     });
 }
 // export const deleteFilter = (filter, value) => {
-//     // debugger
 //     return ({
 //     type: DELETE_FILTER,
 //     filter,
@@ -29,7 +27,6 @@ export const updateFilter = (filter, value) => {
     return (dispatch, getState) => {
         dispatch(changeFilter(filter, value));
         return fetchAttractions(getState().ui.filters)(dispatch);
-        // delicious curry!
     };
 }
 // export const removeFilter = (filter, value) => {

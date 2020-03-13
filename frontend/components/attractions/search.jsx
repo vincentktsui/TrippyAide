@@ -22,7 +22,6 @@ class Search extends React.Component {
     }
 
     componentWillUnmount() {
-        // debugger
         document.body.style.overflow = 'unset';
     }
     render() {

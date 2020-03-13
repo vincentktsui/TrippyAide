@@ -36,8 +36,6 @@ class Show extends React.Component {
         this.props.clearAttraction();
     }
     render () {
-        // console.log(this.state)
-        // console.log(this.props.show)
         if (!this.props.show) {
             return null;
         }

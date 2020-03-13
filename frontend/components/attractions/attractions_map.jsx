@@ -8,7 +8,6 @@ class AttractionsMap extends React.Component {
     //     this.props = props;
     // }
     componentDidMount() {
-        // debugger
         
         if (this.props.type === 'static') {
 
@@ -70,16 +69,12 @@ class AttractionsMap extends React.Component {
 
     }
     componentDidUpdate() {
-        // debugger
         if (this.props.type === 'dynamic') {
-            console.log('hello')
             this.MarkerManager.updateMarkers(this.props.attractions);
         }
-        // debugger
     }
 
     render() {
-        // debugger
         if (
             !jQuery.isEmptyObject(this.props.show)
             && (`${this.props.show.id}` === this.props.match.params.attractionId)
@@ -94,7 +89,6 @@ class AttractionsMap extends React.Component {
         }
         if (this.MarkerManager && Object.keys(this.MarkerManager.markers).length !== 0) {
             if (this.props.hovered) {
-                debugger
                 this.MarkerManager.panTo(this.props.hovered);
             }
             else {

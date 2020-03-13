@@ -1,5 +1,4 @@
 json.show do
-    # debugger
     json.partial! 'api/attractions/attraction', attraction: @attraction
 end
 

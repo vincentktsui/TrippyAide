@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Star from './star';
 class ReviewItem extends React.Component {
     render() {
-        // debugger
         const creation = new Date(this.props.review.created_at)
         .toLocaleDateString('default', {month: 'short', year: 'numeric'})
 

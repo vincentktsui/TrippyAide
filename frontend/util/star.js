@@ -1,5 +1,4 @@
 const Star = (rating) => {
-    // debugger
     switch (rating) {
         case 0:
             return '<span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></span>'

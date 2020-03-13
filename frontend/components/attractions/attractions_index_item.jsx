@@ -7,11 +7,9 @@ const AttractionsIndexItem = (props) => {
     const imgsrc = (props.attraction.photoUrls[0]) ? props.attraction.photoUrls[0] : window.stockURL
     const rating = Math.round(props.attraction.avg_rating * 2) / 2;
     const itemid = (props.type === 'full-map') ? `attraction-${props.attraction.id}` : '';
-    // debugger
     return (
         <li 
         id={itemid}
-        // onMouseEnter={() => console.log('ugh')}
         onMouseEnter={ () => {props.indexHover(props.attraction.id)} }
         onMouseLeave={ () => props.removeHover() }
         >

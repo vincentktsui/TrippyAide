@@ -36,7 +36,7 @@ attraction_names.each do |attraction|
     if categories
         categories = categories[13..-1].split(',').map(&:strip)
     end
-    attractions.push(Attraction.create({name: name, country: 'USA', administrative_area: 'CA', locality: 'San Francisco',
+    attractions.push(Attraction.create({name: name, country: 'USA', administrative_area: 'CA', locality: 'San Francisco', about: Faker::GreekPhilosophers.quote + ' ' + Faker::GreekPhilosophers.quote,
         postal_code: zip, thoroughfare: address, coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(lng, lat) }))
     if categories
         categories.each do |category|
@@ -58,19 +58,19 @@ def generateReviews(attraction, users, five, four, three, two, one)
     total = one+two+three+four+five
     reviewers = users.sample(total)
     five.times do
-        AttractionReview.create({title: FIVESTAR.sample, body: Faker::TvShows::SouthPark.quote, rating: 5, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: FIVESTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 5, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     four.times do
-        AttractionReview.create({title: FOURSTAR.sample, body: Faker::TvShows::SouthPark.quote, rating: 4, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: FOURSTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 4, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     three.times do
-        AttractionReview.create({title: THREESTAR.sample, body: Faker::TvShows::SouthPark.quote, rating: 3, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: THREESTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 3, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     two.times do
-        AttractionReview.create({title: TWOSTAR.sample, body: Faker::TvShows::SouthPark.quote, rating: 2, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: TWOSTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 2, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     one.times do
-        AttractionReview.create({title: ONESTAR.sample, body: Faker::TvShows::SouthPark.quote, rating: 1, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: ONESTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 1, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
 end
 
@@ -236,4 +236,18 @@ niagara_falls.photos.attach(io: open('https://trip-advisor-clone-seeds.s3.us-wes
 AttractionCategory.create({attraction_id: niagara_falls.id, category_id: 1})
 AttractionCategory.create({attraction_id: niagara_falls.id, category_id: 2})
 AttractionCategory.create({attraction_id: niagara_falls.id, category_id: 7})
+generateReviews(niagara_falls, users, rand(15..20), rand(7..12), rand(3..8), 0, 0)
+
+
+statue_of_liberty = Attraction.create({name: 'Statue of Liberty', country: 'USA', 
+    administrative_area: 'NY', locality: 'New York City', 
+    postal_code: '10004', thoroughfare: 'Liberty Island', 
+    coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(-79.084944, 43.089558),
+    about: 'The Statue of Liberty Enlightening the World was a gift of friendship from the people of France to the people of the United States and is a universal symbol of freedom and democracy.'})
+statue_of_liberty.photos.attach(io: open('https://trip-advisor-clone-seeds.s3.us-west-1.amazonaws.com/seed_images/StatueOfLiberty.jpg'), filename: 'StatueOfLiberty.jpg')
+AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 1})
+AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 2})
+AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 3})
+AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 4})
+AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 5})
 generateReviews(niagara_falls, users, rand(15..20), rand(7..12), rand(3..8), 0, 0)

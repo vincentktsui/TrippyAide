@@ -22,7 +22,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        // debugger
         const emailplaceholder = (this.props.formType === 'signup') ? 
             "Email (valid emails only)" : '';
         const passwordplaceholder = (this.props.formType === 'signup') ? 
