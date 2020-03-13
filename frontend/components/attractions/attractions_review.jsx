@@ -27,15 +27,19 @@ class AttractionsReview extends React.Component {
         if (!this.props.reviews) {
             return null;
         }
-        const nextdisabled = (this.state.page >= Math.floor(
-            Object.keys(this.props.reviews).length / 20) + 1) ? true : false;
-        const prevdisabled = (this.state.page <= 1) ? true : false;
-        // debugger
         const reviews = Object.values(this.props.reviews)
-            .sort((a, b) => b.created_at > a.created_at)
-            .slice((this.state.page - 1) * 20, this.state.page * 20)
-            .map((review) => <ReviewItem key={review.id}
+        .sort((a, b) => {
+            if (b.visit_date > a.visit_date)
+                return 1;
+            else
+                return -1;
+        })
+        .slice((this.state.page - 1) * 20, this.state.page * 20)
+        .map((review) => <ReviewItem key={review.id}
              review={review}/>)
+        const nextdisabled = (this.state.page >= Math.floor(
+            reviews.length / 20) + 1) ? true : false;
+        const prevdisabled = (this.state.page <= 1) ? true : false;
         return (
             <div className="reviews-tab">
                 <div>

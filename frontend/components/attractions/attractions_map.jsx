@@ -33,8 +33,6 @@ class AttractionsMap extends React.Component {
                 mapTypeControl: false,
                 streetViewControl: false,
                 clickableIcons: false,
-
-
             };
             // set the map to show SF
             // wrap this.mapNode in a Google Map
@@ -53,7 +51,18 @@ class AttractionsMap extends React.Component {
                 // 
                 that.props.updateFilter("bounds", bounds);
             });
-            // debugger
+            // run once to initialize 
+
+            // that.props.updateFilter("bounds", {
+            //     northEast: {
+            //         lat: 37.79597418720419,
+            //         lng: - 122.34350448608397,
+            //     },
+            //     southWest: {
+            //         lat: 37.775624411929606,
+            //         lng: -122.526495513916,
+            //     }
+            // })
         }
         google.maps.event.addListener(this.map, 'click', (event) => {
             this.MarkerManager.clearClicked();
@@ -61,9 +70,12 @@ class AttractionsMap extends React.Component {
 
     }
     componentDidUpdate() {
+        // debugger
         if (this.props.type === 'dynamic') {
+            console.log('hello')
             this.MarkerManager.updateMarkers(this.props.attractions);
         }
+        // debugger
     }
 
     render() {
@@ -72,7 +84,6 @@ class AttractionsMap extends React.Component {
             !jQuery.isEmptyObject(this.props.show)
             && (`${this.props.show.id}` === this.props.match.params.attractionId)
             ) {
-
             this.map.setCenter({lat: this.props.show.lat, 
                 lng: this.props.show.lng});
             this.MarkerManager.updateMarkers(this.props.attractions);
@@ -80,6 +91,15 @@ class AttractionsMap extends React.Component {
             this.MarkerManager.createMarkerFromAttraction(this.props.show,
                 window.attractionMainURL)
             // this.MarkerManager.createMainMarker(this.props.show);
+        }
+        if (this.MarkerManager && Object.keys(this.MarkerManager.markers).length !== 0) {
+            if (this.props.hovered) {
+                debugger
+                this.MarkerManager.panTo(this.props.hovered);
+            }
+            else {
+                this.MarkerManager.clearHovered();
+            }
         }
         return (
             <div className={`map ${this.props.type}`} ref={map => this.mapNode = map}>

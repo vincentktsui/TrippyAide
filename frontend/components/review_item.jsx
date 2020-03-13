@@ -8,27 +8,29 @@ class ReviewItem extends React.Component {
         .toLocaleDateString('default', {month: 'short', year: 'numeric'})
 
         const visitdate = (this.props.review.visit_date) ? 
-            (<li>
+            (<div>
                 <span>Date of experience: </span>
                 {new Date(this.props.review.visit_date)
-            .toLocaleDateString('default', {month: 'short', year: 'numeric' })}</li>) : ''
+            .toLocaleDateString('default', {month: 'short', year: 'numeric' })}</div>) : ''
         return (
             <li>
                 <article className="review-item">
                     <div>
-                        {this.props.review.display_name} wrote a review {creation}
+                        <span>{this.props.review.display_name}</span> wrote a review {creation}
                     </div>
                     <div>
                         <ul>
                             <li><Star rating={this.props.review.rating} /></li>
                             <li><h2>{this.props.review.title}</h2></li>
-                            <li><div>
+                            <li>
+                            <p>
                                 {this.props.review.body}
-                            </div></li>
-                            {visitdate}
+                            </p>
+                            </li>
                         </ul>
                     </div>
-        
+                    {visitdate}
+    
                 </article>
             </li>
         )

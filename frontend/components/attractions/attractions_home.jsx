@@ -101,7 +101,9 @@ class AttractionsHome extends React.Component {
             .sort( (a,b) => b.avg_rating - a.avg_rating)
             .slice((this.state.page - 1) * 20, this.state.page * 20)
             .map(attraction => <AttractionsIndexItem key={attraction.id}
-                attraction={attraction} />);
+                attraction={attraction} 
+                indexHover={() => (undefined)}
+                removeHover={()=>(undefined)}/>);
         const nextdisabled = (this.state.page >= Math.floor(
             attractions.length / 20) + 1) ? true : false;
         const prevdisabled = (this.state.page <= 1) ? true : false;

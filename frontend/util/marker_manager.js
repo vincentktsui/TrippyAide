@@ -87,6 +87,16 @@ class MarkerManager {
         this.markers[attraction.id] = marker;
     }
 
+    panTo(id) {
+        this.clearHovered();
+        this.bubbles[id].setMap(this.map);
+        // this.map.panTo(this.markers[id].position);
+    }
+
+    clearHovered() {
+        Object.values(this.bubbles).forEach(bubble => bubble.setMap(null));
+    }
+
     removeMarker(id) {
         // debugger
         this.markers[id].setMap(null);

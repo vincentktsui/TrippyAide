@@ -7,7 +7,15 @@ class Search extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+        this.state = {hovered: undefined}
+    }
 
+    indexHover(id) {
+        this.setState({hovered: id});
+    }
+
+    removeHover() {
+        this.setState({hovered: undefined});
     }
     componentDidMount() {
         document.body.style.overflow = 'hidden';
@@ -22,11 +30,14 @@ class Search extends React.Component {
             <div className="full-map-container">
             <AttractionsIndex 
                 attractions={this.props.attractions} 
-                fetchAttractions={this.props.fetchAttractions}/>
+                fetchAttractions={this.props.fetchAttractions}
+                indexHover={this.indexHover.bind(this)}
+                removeHover={this.removeHover.bind(this)}/>
             <AttractionsMap 
                 attractions={this.props.attractions}
                 updateFilter={this.props.updateFilter}
-                type="dynamic"/>
+                type="dynamic"
+                hovered={this.state.hovered}/>
         </div>
         )
     }
