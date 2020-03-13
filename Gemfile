@@ -28,6 +28,8 @@ gem 'jquery-rails'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo'
 gem 'figaro'
+gem 'faker'
+
 # gem 'activestorage'
 gem 'aws-sdk-s3', require: false
 
@@ -56,7 +58,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'faker'
 end
 
 group :test do
