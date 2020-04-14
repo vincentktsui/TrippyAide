@@ -242,7 +242,7 @@ generateReviews(niagara_falls, users, rand(15..20), rand(7..12), rand(3..8), 0, 
 statue_of_liberty = Attraction.create({name: 'Statue of Liberty', country: 'USA', 
     administrative_area: 'NY', locality: 'New York City', 
     postal_code: '10004', thoroughfare: 'Liberty Island', 
-    coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(-79.084944, 43.089558),
+    coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(-74.044502, 40.689247),
     about: 'The Statue of Liberty Enlightening the World was a gift of friendship from the people of France to the people of the United States and is a universal symbol of freedom and democracy.'})
 statue_of_liberty.photos.attach(io: open('https://trip-advisor-clone-seeds.s3.us-west-1.amazonaws.com/seed_images/StatueOfLiberty.jpg'), filename: 'StatueOfLiberty.jpg')
 AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 1})
@@ -250,4 +250,4 @@ AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 2})
 AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 3})
 AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 4})
 AttractionCategory.create({attraction_id: statue_of_liberty.id, category_id: 5})
-generateReviews(niagara_falls, users, rand(15..20), rand(7..12), rand(3..8), 0, 0)
+generateReviews(statue_of_liberty, users, rand(15..20), rand(7..12), rand(3..8), 0, 0)

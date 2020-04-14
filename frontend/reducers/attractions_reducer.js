@@ -1,4 +1,4 @@
-import { RECEIVE_ATTRACTIONS, RECEIVE_ATTRACTION } from '../actions/attraction_actions';
+import { RECEIVE_ATTRACTIONS, RECEIVE_ATTRACTION, RECEIVE_MAP_ATTRACTIONS, RECEIVE_HOME_ATTRACTIONS } from '../actions/attraction_actions';
 
 const attractionsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -6,11 +6,16 @@ const attractionsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ATTRACTIONS:
-            return action.attractions;
+            newState = Object.assign(newState, action.attractions);
+            return newState;
+        case RECEIVE_HOME_ATTRACTIONS:
+            newState = Object.assign(newState, action.attractions);
+            return newState;
+        case RECEIVE_MAP_ATTRACTIONS:
+            newState = Object.assign(newState, action.attractions);
+            return newState;
         case RECEIVE_ATTRACTION:
-            // newState = Object.assign(newState, action.attractions.nearby);
-            // return newState;
-            newState = Object.assign({}, action.attractions.nearby);
+            newState = Object.assign(newState, action.attractions.nearby);
             return newState;
         default:
             return state;

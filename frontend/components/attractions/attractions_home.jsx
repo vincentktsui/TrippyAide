@@ -22,7 +22,7 @@ class AttractionsHome extends React.Component {
         // this.toggleAll = this.toggleAll.bind(this);
     }
     componentDidMount() {
-        this.props.updateFilter("bounds", {} );
+        this.props.updateHomeFilter("bounds", {} );
         window.scrollTo({ top: 0 });
     }
 

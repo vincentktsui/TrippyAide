@@ -48,7 +48,7 @@ class AttractionsMap extends React.Component {
                     southWest: { lat: southWest.lat(), lng: southWest.lng() }
                 };
                 // 
-                that.props.updateFilter("bounds", bounds);
+                that.props.updateMapFilter("bounds", bounds);
             });
             // run once to initialize 
 

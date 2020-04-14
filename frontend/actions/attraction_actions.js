@@ -1,6 +1,8 @@
 import * as AttractionUtil from '../util/attraction_api_util';
 
-export const RECEIVE_ATTRACTIONS = 'RECEIVE_ATTRACTIONS';
+export const RECEIVE_ATTRACTIONS = "RECEIVE_ATTRACTIONS";
+export const RECEIVE_MAP_ATTRACTIONS = 'RECEIVE_MAP_ATTRACTIONS';
+export const RECEIVE_HOME_ATTRACTIONS = 'RECEIVE_HOME_ATTRACTIONS';
 export const RECEIVE_ATTRACTION = 'RECEIVE_ATTRACTION';
 export const CLEAR_ATTRACTION = 'CLEAR_ATTRACTION';
 export const RECEIVE_ATTRACTION_ERRORS = 'RECEIVE_ATTRACTION_ERRORS';
@@ -9,6 +11,16 @@ export const RECEIVE_ATTRACTION_ERRORS = 'RECEIVE_ATTRACTION_ERRORS';
 // standard actions
 export const receiveAttractions = attractions => ({
     type: RECEIVE_ATTRACTIONS,
+    attractions
+});
+
+export const receiveMapAttractions = attractions => ({
+    type: RECEIVE_MAP_ATTRACTIONS,
+    attractions
+});
+
+export const receiveHomeAttractions = attractions => ({
+    type: RECEIVE_HOME_ATTRACTIONS,
     attractions
 });
 
@@ -30,15 +42,29 @@ export const clearAttraction = () => ({
 
 
 // thunk actions
-export const fetchAttractions = (filters) => dispatch => (
-    AttractionUtil.fetchAttractions(filters)
+export const fetchAttractions = (filters) => dispatch => {
+    console.log("fetching attractions")
+    return AttractionUtil.fetchAttractions(filters)
         .then((attractions) => dispatch(receiveAttractions(attractions)))
-        .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
-);
+        // .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
+        .fail(errors => console.log(errorserrors.responseJSON))
+};
 
 export const fetchAttraction = id => dispatch => (
     AttractionUtil.fetchAttraction(id)
         .then((attractions) => dispatch(receiveAttraction(attractions)))
+        .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
+);
+
+export const fetchMapAttractions = (filters) => dispatch => (
+    AttractionUtil.fetchAttractions(filters)
+        .then((attractions) => dispatch(receiveMapAttractions(attractions)))
+        .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
+);
+
+export const fetchHomeAttractions = (filters) => dispatch => (
+    AttractionUtil.fetchAttractions(filters)
+        .then((attractions) => dispatch(receiveHomeAttractions(attractions)))
         .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
 );
 
