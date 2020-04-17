@@ -38,7 +38,8 @@ class SessionForm extends React.Component {
         const temp = (this.props.match.params.url) ? 
             (this.props.match.params.url) : '';
         const id = (this.props.match.params.id) ? '/'+(this.props.match.params.id) : '';
-        const closeurl = '/' + temp + id; 
+        const review = (this.props.match.params.review) ? '/review' : '';
+        const closeurl = '/' + temp + id + review; 
         let stripped = this.props.match.url.split('/');
         stripped.pop();
         stripped = stripped.join('/');

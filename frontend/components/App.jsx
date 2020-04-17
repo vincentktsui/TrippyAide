@@ -9,6 +9,7 @@ import ShowContainer from './attractions/show_container';
 import AttractionHomeContainer from './attractions/attractions_home_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SplashContainer from './splash_container';
+import AttractionReviewFormContainer from './attractions/attraction_review_form_container';
 
 const App = () => (
     <div>
@@ -18,12 +19,13 @@ const App = () => (
         <Route exact path="/" component={SplashContainer}/>
         <div className="main-content">
             <Switch>
+            <Route path="/attractions/:attractionId(\d+)/review" component={AttractionReviewFormContainer} />
             <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
             <Route path="/attractions" component={AttractionHomeContainer} />
             </Switch>
             <Route path="/attractions/map" component={SearchContainer} />
-            <AuthRoute path="/:url?/:id?/login" component={LoginFormContainer} />
-            <AuthRoute path="/:url?/:id?/signup" component={SignupFormContainer} />
+            <AuthRoute path="/:url?/:id?/:review?/login" component={LoginFormContainer} />
+            <AuthRoute path="/:url?/:id?/:review?/signup" component={SignupFormContainer} />
         </div>
         <footer>
 

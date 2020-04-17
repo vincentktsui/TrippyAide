@@ -17,28 +17,28 @@
     border: none;
 }
 
-.review-item {
+.reviews-tab .review-item {
     padding: 15px;
 }
-.review-item ul li {
+.reviews-tab .review-item ul li {
     margin: 10px 0;
     font-size: 16px;
 }
 
-.review-item h2 {
+.reviews-tab .review-item h2 {
     font-size: 17px;
     font-weight: bold;
 }
 
-.review-item > div {
+.reviews-tab .review-item > div {
     font-size: 13px;
 }
 
-.review-item > div > span {
+.reviews-tab .review-item > div > span {
     font-weight: bold;
 }
 
-.review-item p {
+.reviews-tab .review-item p {
     line-height: 24px;
     font-size: 16px;
 }

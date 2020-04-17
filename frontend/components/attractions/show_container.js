@@ -5,11 +5,22 @@ import { fetchAttraction, clearAttraction } from '../../actions/attraction_actio
 import { withRouter } from 'react-router-dom';
 
 
-const mapStateToProps = ({ entities, ui }) => ({
-    attractions: entities.attractions,
-    show: ui.attraction,
-    reviews: entities.reviews,
-});
+const mapStateToProps = ({ entities, ui }) => {
+    const filtered = Object.keys(entities.attractions).filter(key => ui.showAttractions.includes(key))
+        .reduce((obj, key) => {
+            return {
+                ...obj,
+                [key]: entities.attractions[key]
+            };
+        }, {});
+        
+    return {
+        attractions: filtered,
+        show: ui.attraction,
+        reviews: entities.reviews,
+    };
+
+};
 
 const mapDispatchToProps = dispatch => ({
     fetchAttraction: (id) => dispatch(fetchAttraction(id)),

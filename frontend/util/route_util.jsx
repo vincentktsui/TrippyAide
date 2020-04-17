@@ -25,8 +25,16 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
     <Route
         path={path}
         exact={exact}
-        render={props =>
-            loggedIn ? <Component {...props} /> : <Redirect to="/login" />
+        render={props => {
+            let stripped = props.match.url.split('/');
+            stripped.pop();
+            stripped = stripped.join('/');
+            if (stripped === '') {
+                stripped = '/';
+            }
+            stripped += '/login';
+            return loggedIn ? <Component {...props} /> : <Redirect to={stripped} />
+        }
         }
     />
 );

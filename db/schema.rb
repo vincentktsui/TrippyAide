@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_000610) do
+ActiveRecord::Schema.define(version: 2020_04_17_031805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_000610) do
     t.string "title", null: false
     t.text "body", null: false
     t.integer "rating", null: false
-    t.date "visit_date"
+    t.date "visit_date", null: false
     t.integer "author_id", null: false
     t.integer "attraction_id", null: false
     t.datetime "created_at", null: false

@@ -40,10 +40,8 @@ export const clearAttraction = () => ({
     type: CLEAR_ATTRACTION,
 });
 
-
 // thunk actions
 export const fetchAttractions = (filters) => dispatch => {
-    console.log("fetching attractions")
     return AttractionUtil.fetchAttractions(filters)
         .then((attractions) => dispatch(receiveAttractions(attractions)))
         // .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))

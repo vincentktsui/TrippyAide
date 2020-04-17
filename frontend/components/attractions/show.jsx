@@ -15,25 +15,20 @@ class Show extends React.Component {
         // this.map = new google.maps.Map(this.mapNode);
     }
     componentDidMount() {
-        window.scrollTo( {top: 0} );
         this.props.fetchAttraction(this.props.match.params.attractionId);
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.attractionId !==
             this.props.match.params.attractionId) {
-            this.props.fetchAttraction(
-                this.props.match.params.attractionId).then(
+            this.props.fetchAttraction(this.props.match.params.attractionId)
+                .then(
                     // this.setState({ attractionId: this.props.match.params.attractionId,})
                 );
-            window.scrollTo({ top: 0 });
         }
-        // if (this.props.show !== prevProps.show) {
-        //     this.setState({dataLoaded: true})
-        // }
     }
 
     componentWillUnmount() {
-        this.props.clearAttraction();
+        // this.props.clearAttraction();
     }
     render () {
         if (!this.props.show) {
@@ -53,7 +48,8 @@ class Show extends React.Component {
                     show={this.props.show}
                     // updateFilter={props.updateFilter} 
                     />
-                <AttractionsReview 
+                <AttractionsReview
+                    show={this.props.show}
                     reviews={this.props.reviews}/>
             </div>
         )

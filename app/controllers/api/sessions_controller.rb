@@ -18,7 +18,6 @@ class Api::SessionsController < ApplicationController
     def destroy
         if logged_in?
             logout
-            # redirect_to "/"
         else
             render json: ['nothing to log out'], status: 404
         end

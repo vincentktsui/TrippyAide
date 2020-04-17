@@ -42,7 +42,12 @@ class AttractionsReview extends React.Component {
         return (
             <div className="reviews-tab">
                 <div>
-
+                    <h2>Reviews</h2>
+                    <Link to={`/attractions/${this.props.show.id}/review`}>
+                    <button
+                        className="black-button"
+                        >Write a review</button>
+                    </Link>
                 </div>
                 <ul>
                     {reviews}
