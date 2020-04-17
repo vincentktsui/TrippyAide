@@ -13,10 +13,10 @@ export const fetchAttraction = (id) => {
     })
 }
 
-export const createAttractionReview = (payload) => {
+export const createAttractionReview = (attraction_review) => {
     return $.ajax({
         method: 'POST',
-        url: `/api/attractions/${payload.attraction_id}/attraction_reviews`,
-        data: payload
+        url: `/api/attractions/${attraction_review.attraction_id}/attraction_reviews`,
+        data: {attraction_review}
     })
 }

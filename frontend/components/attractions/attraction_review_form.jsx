@@ -173,8 +173,7 @@ class AttractionReviewForm extends React.Component {
         e.preventDefault();
         const review = Object.assign({}, this.state);
         delete review.hover_rating;
-        const payload = {attraction_review: review}
-        APIUtil.createAttractionReview(payload);
+        APIUtil.createAttractionReview(review);
     }
 }
 
