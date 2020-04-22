@@ -6,6 +6,11 @@ class Api::AttractionsController < ApplicationController
             if params[:filters][:bounds]
                 @attractions = Attraction.with_attached_photos.in_bounds(params[:filters][:bounds])
             end
+
+            if params[:filters][:city]
+                @attractions = Attraction.with_attached_photos.where(locality: params[:filters][:city])
+                # debugger
+            end
             # if params[:filters][:categories]
             #     @attractions = Attraction.none;
             #     params[:filters][:categories].each do |category|

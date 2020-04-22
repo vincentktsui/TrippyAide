@@ -63,19 +63,6 @@ class Attraction < ApplicationRecord
         # id != ? AND
     end
 
-    # def self.blah
-    #     sql= <<-SQL
-    #         SELECT attractions.id, AVG(rating)
-    #         FROM attractions
-    #         JOIN attraction_reviews 
-    #         ON attractions.id = attraction_reviews.attraction_id 
-    #         GROUP BY attractions.id
-    #         ORDER BY AVG(rating) DESC
-    #     SQL
-    #     Attraction.find_by_sql(sql)
-    #     # array = ActiveRecord::Base.connection.execute(sql)
-    #     # array
-    # end
 
 end
 

@@ -20,6 +20,7 @@ const App = () => (
         </header>
         <Route exact path="/" component={SplashContainer}/>
         <div className="main-content">
+            
             <Switch>
             <Route path="/attractions/:attractionId(\d+)/review" component={AttractionReviewFormContainer} />
             <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />

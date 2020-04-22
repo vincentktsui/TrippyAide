@@ -5,12 +5,19 @@ class CityHome extends React.Component {
         super(props);
         this.props = props;
         console.log(this.props);
-        this.city = this.props.params.city;
+        this.city = this.props.match.params.city;
+    }
+
+    componentDidMount() {
+        this.props.updateFilter("city", this.city);
+        this.props.fetchAttractions(this.props.filters);
     }
 
     render() {
         return(
-            <div></div>
+            <div>
+                <h1>{this.city}</h1>
+            </div>
         )
     }
 }
