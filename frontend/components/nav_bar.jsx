@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBarContainer from './search_bar_container';
 
 const NavBar = (props) => {
     let path = props.location.pathname;
@@ -42,11 +43,7 @@ const NavBar = (props) => {
                         </div>
                     </Link>
                 </h1>
-                <div className="search-bar">
-                    <form>
-                        <input type="search"/>    
-                    </form>
-                </div>
+                <SearchBarContainer />
             </div>
 
             <div className="nav-right">

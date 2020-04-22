@@ -6,7 +6,7 @@ export const RECEIVE_HOME_ATTRACTIONS = 'RECEIVE_HOME_ATTRACTIONS';
 export const RECEIVE_ATTRACTION = 'RECEIVE_ATTRACTION';
 export const CLEAR_ATTRACTION = 'CLEAR_ATTRACTION';
 export const RECEIVE_ATTRACTION_ERRORS = 'RECEIVE_ATTRACTION_ERRORS';
-
+export const RECEIVE_ATTRACTION_REVIEW_ERRORS = 'RECEIVE_ATTRACTION_REVIEW_ERRORS';
 
 // standard actions
 export const receiveAttractions = attractions => ({
@@ -29,6 +29,11 @@ export const receiveAttractionErrors = errors => ({
     errors
 });
 
+export const receiveAttractionReviewErrors = errors => ({
+    type: RECEIVE_ATTRACTION_REVIEW_ERRORS,
+    errors
+})
+
 export const receiveAttraction = attractions => {
     return {
         type: RECEIVE_ATTRACTION,
@@ -44,8 +49,8 @@ export const clearAttraction = () => ({
 export const fetchAttractions = (filters) => dispatch => {
     return AttractionUtil.fetchAttractions(filters)
         .then((attractions) => dispatch(receiveAttractions(attractions)))
-        // .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
-        .fail(errors => console.log(errorserrors.responseJSON))
+        .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
+        // .fail(errors => console.log(errorserrors.responseJSON))
 };
 
 export const fetchAttraction = id => dispatch => (
@@ -66,12 +71,14 @@ export const fetchHomeAttractions = (filters) => dispatch => (
         .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
 );
 
-// export const createAttraction = (attraction) => dispatch => (
-//     AttractionUtil.createAttraction(attraction)
-//         .then((attraction) => dispatch(receiveAttraction(attraction)))
-//         .fail(errors => dispatch(receiveAttractionErrors(errors.responseJSON)))
+export const createAttractionReview = (review, history) => dispatch => (
+    AttractionUtil.createAttractionReview(review)
+        .then((review) => {
+            history.push(`/attractions/${review.attraction_id}`)
+        })
+        .fail(errors => dispatch(receiveAttractionReviewErrors(errors.responseJSON)))
 
-// );
+);
 
 
 

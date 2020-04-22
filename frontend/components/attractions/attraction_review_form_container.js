@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import AttractionReviewForm from './attraction_review_form';
-import { fetchAttraction, clearAttraction } from '../../actions/attraction_actions';
+import { fetchAttraction, clearAttraction , createAttractionReview } from '../../actions/attraction_actions';
 // import { updateFilter } from '../../actions/filter_actions';
 import { withRouter } from 'react-router-dom';
 
 
-const mapStateToProps = ({ entities, ui, session }) => {
+const mapStateToProps = ({ entities, ui, session, errors }) => {
     return {
         show: ui.attraction,
         reviews: entities.reviews,
-        authorId: session.id
+        authorId: session.id,
+        errors: errors.review,
     };
 
 };
@@ -17,6 +18,7 @@ const mapStateToProps = ({ entities, ui, session }) => {
 const mapDispatchToProps = dispatch => ({
     fetchAttraction: (id) => dispatch(fetchAttraction(id)),
     clearAttraction: () => dispatch(clearAttraction()),
+    createAttractionReview: (review, history) => dispatch(createAttractionReview(review, history)),
 });
 
 

@@ -75,6 +75,9 @@ class AttractionsMap extends React.Component {
     }
 
     render() {
+        if (!this.map) {
+            return null;
+        }
         if (
             !jQuery.isEmptyObject(this.props.show)
             && (`${this.props.show.id}` === this.props.match.params.attractionId)

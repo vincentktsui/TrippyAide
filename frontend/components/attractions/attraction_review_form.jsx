@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import * as Util from '../../util/util';
 import Star from '../star';
 import ReviewItem from '../review_item';
-import * as APIUtil from '../../util/attraction_api_util';
 
 class AttractionReviewForm extends React.Component {
     constructor(props) {
@@ -92,6 +91,7 @@ class AttractionReviewForm extends React.Component {
         if (!this.props.show || this.props.show.id !== parseInt(this.props.match.params.attractionId)) {
             return null;
         }
+        const errors = this.props.errors.map( (error) => <li key={Math.random()}>{error}</li>);
         const months = this.getLastTwelveMonths();
         const options = months.map(month => {
             return <option value={month}>{month.toLocaleDateString('default', {month: 'long', year: 'numeric'})}</option>
@@ -144,10 +144,13 @@ class AttractionReviewForm extends React.Component {
                         name="visit-date" 
                         id="review-form-visit-date"
                         onChange={this.handleInput('visit_date')}>
-                        <option value="">Select one</option>
+                        <option disabled="disabled" selected="true" value="">Select one</option>
                         {options}
                     </select>
                     <br/>
+                    <ul>
+                        {errors}
+                    </ul>
                     <button 
                         onClick={this.handleSubmit}
                         className="black-button"
@@ -173,7 +176,7 @@ class AttractionReviewForm extends React.Component {
         e.preventDefault();
         const review = Object.assign({}, this.state);
         delete review.hover_rating;
-        APIUtil.createAttractionReview(review);
+        this.props.createAttractionReview(review, this.props.history);
     }
 }
 

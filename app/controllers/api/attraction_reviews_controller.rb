@@ -1,9 +1,8 @@
 class Api::AttractionReviewsController < ApplicationController
     def create
-        debugger
         @attraction_review = AttractionReview.new(attraction_review_params)
-        debugger
         if @attraction_review.save
+            render json: @attraction_review
         else
             render json: @attraction_review.errors.full_messages, status: 422
         end

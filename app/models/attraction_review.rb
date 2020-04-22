@@ -13,7 +13,7 @@
 #  updated_at    :datetime         not null
 #
 class AttractionReview < ApplicationRecord
-    validates :title, :body, :rating, :author_id, :attraction_id, presence: true
+    validates :title, :body, :rating, :author_id, :attraction_id, :visit_date, presence: true
 
     belongs_to :author,
         foreign_key: :author_id,
