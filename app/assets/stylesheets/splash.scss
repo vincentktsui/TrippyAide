@@ -1,7 +1,9 @@
 .splash-top {
     background: url('Beach.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 600px; 
+    background-size: 100% 100%;
+    // background-size: cover;
+    // height: calc(100vh - 60px); 
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

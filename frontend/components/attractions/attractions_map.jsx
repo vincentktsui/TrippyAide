@@ -10,6 +10,7 @@ class AttractionsMap extends React.Component {
     componentDidMount() {
         
         if (this.props.type === 'static') {
+            debugger
 
             this.map = new google.maps.Map(this.mapNode, {
                 zoom: 13, 
@@ -19,6 +20,7 @@ class AttractionsMap extends React.Component {
                 clickableIcons: false,
 
             });
+            debugger
             this.MarkerManager = new MarkerManager(this.map, 'static');
             // this.MarkerManager.updateMarkers(this.props.show)
             // this.MarkerManager.updateMarkers(this.props.attractions);
@@ -75,9 +77,9 @@ class AttractionsMap extends React.Component {
     }
 
     render() {
-        if (!this.map) {
-            return null;
-        }
+        // if (!this.map) {
+        //     return null;
+        // }
         if (
             !jQuery.isEmptyObject(this.props.show)
             && (`${this.props.show.id}` === this.props.match.params.attractionId)
@@ -100,7 +102,6 @@ class AttractionsMap extends React.Component {
         }
         return (
             <div className={`map ${this.props.type}`} ref={map => this.mapNode = map}>
-
             </div>
         )
     }

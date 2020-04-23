@@ -35,6 +35,8 @@ class Show extends React.Component {
             return null;
         }
         return (
+            <div className="main-content">
+
             <div>
                 <AttractionsShow
                     // attractions={props.attractions}
@@ -51,6 +53,7 @@ class Show extends React.Component {
                 <AttractionsReview
                     show={this.props.show}
                     reviews={this.props.reviews}/>
+            </div>
             </div>
         )
     }

@@ -22,8 +22,7 @@ class AttractionsHome extends React.Component {
         // this.toggleAll = this.toggleAll.bind(this);
     }
     componentDidMount() {
-        this.props.updateHomeFilter("bounds", {} );
-        window.scrollTo({ top: 0 });
+        this.props.updateHomeFilter("city", this.props.match.params.city);
     }
 
     toggleAll() {
@@ -104,6 +103,8 @@ class AttractionsHome extends React.Component {
             attractions.length / 20) + 1) ? true : false;
         const prevdisabled = (this.state.page <= 1) ? true : false;
         return (
+            <div className="main-content">
+
             <div className='home-outer'>
                 <h1>Attractions</h1>
                 <div className='map-button'>
@@ -197,6 +198,7 @@ class AttractionsHome extends React.Component {
                     </section>
                 </div>
 
+            </div>
             </div>
         )
     }

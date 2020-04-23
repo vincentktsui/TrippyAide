@@ -15,17 +15,21 @@ class SearchBar extends React.Component {
         const input = document.getElementById('nav-search');
 
         this.autocomplete = new google.maps.places.Autocomplete(input, options);
-        this.autocomplete.setFields(['address_components', 'geometry']);
+        this.autocomplete.setFields(['address_components', 'geometry', 'photos']);
         this.autocomplete.addListener('place_changed', () => {
             const addressObject = this.autocomplete.getPlace();
             const place = addressObject.address_components;
             if (place) {
                 const city = place[0].long_name;
                 const location = addressObject.geometry.location;
-                // this.props.updateFilter("city", city);
+                debugger
+                const cityPhoto = addressObject.photos[0].getUrl();
+                this.props.updateFilter("city", city);
                 if (!localStorage.city || localStorage.city !== city) {
                     localStorage.setItem('city', city);
-                    localStorage.setItem('location', location);
+                    localStorage.setItem('cityPhoto', cityPhoto);
+                    localStorage.setItem('lat', location.lat());
+                    localStorage.setItem('lng', location.lng());
                 }
                 this.props.history.push(`/${city}`);
 
@@ -38,7 +42,7 @@ class SearchBar extends React.Component {
     render() {
         return (
         <div className="search-bar">
-            <form>
+            <form onSubmit={e => { e.preventDefault(); }}>
                 <input id="nav-search" type="search"/>
             </form>
         </div>

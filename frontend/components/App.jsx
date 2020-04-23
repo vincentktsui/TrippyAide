@@ -18,20 +18,19 @@ const App = () => (
         <header className="nav-bar-outer">
             <NavBarContainer />
         </header>
-        <Route exact path="/" component={SplashContainer}/>
-        <div className="main-content">
             
             <Switch>
+            <Route exact path="/" component={SplashContainer}/>
             <Route path="/attractions/:attractionId(\d+)/review" component={AttractionReviewFormContainer} />
             <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
-            <Route path="/attractions" component={AttractionHomeContainer} />
+            <Route path="/:city/attractions" component={AttractionHomeContainer} />
+            {/* <Route path="/:city/hotels" component={HotelsHomeContainer} /> */}
             <Route path="/:city" component={CityHomeContainer} />
             {/* <Route path="/restaurants" component={RestaurantHomeContainer} /> */}
             </Switch>
             <Route path="/attractions/map" component={SearchContainer} />
             <AuthRoute path="/:url?/:id?/:review?/login" component={LoginFormContainer} />
             <AuthRoute path="/:url?/:id?/:review?/signup" component={SignupFormContainer} />
-        </div>
         <footer>
 
         </footer>

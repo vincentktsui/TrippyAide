@@ -42,7 +42,7 @@ export const changeMapFilter = (filter, value) => {
 export const updateFilter = (filter, value) => {
     return (dispatch, getState) => {
         dispatch(changeFilter(filter, value));
-        return fetchAttractions(getState().ui.filters)(dispatch);
+        // return fetchAttractions(getState().ui.filters)(dispatch);
     };
 }
 export const updateHomeFilter = (filter, value) => {

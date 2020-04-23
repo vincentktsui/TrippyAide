@@ -108,6 +108,8 @@ class AttractionReviewForm extends React.Component {
         .slice(0, 3)
         .map( (review) => <ReviewItem key={review.id} review={review}/>);
         return (
+            <div className="main-content">
+
             <div className="review-form-screen">
                 <form className="review-form">
                     <div>
@@ -163,6 +165,7 @@ class AttractionReviewForm extends React.Component {
                         {reviews}
                     </ul>
                 </aside>
+            </div>
             </div>
         )
     }
