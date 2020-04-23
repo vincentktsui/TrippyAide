@@ -1,6 +1,7 @@
 import React from 'react';
 import * as APIUtil from '../../util/hotel_api_util';
 import { fetchHotels } from '../../actions/hotel_actions';
+import { Link } from 'react-router-dom'
 
 class CityHome extends React.Component {
     constructor(props) {
@@ -28,8 +29,12 @@ class CityHome extends React.Component {
             <div className="city-splash">
                 <h1>{localStorage.city}</h1>
                 <nav>
+                    <Link to={`/${localStorage.city}/attractions`}>
                     <button>Attractions</button>
+                    </Link>
+                    <Link to={`/${localStorage.city}/hotels`}>
                     <button>Hotels</button>
+                    </Link>
                 </nav>
             </div>
         )

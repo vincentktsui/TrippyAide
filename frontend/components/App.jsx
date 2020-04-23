@@ -12,6 +12,7 @@ import SplashContainer from './splash_container';
 import AttractionReviewFormContainer from './attractions/attraction_review_form_container';
 // import RestaurantHomeContainer from './restaurants/restaurants_home_container';
 import CityHomeContainer from './city/city_home_container';
+import HotelsHomeContainer from './hotels/hotels_home_container';
 
 const App = () => (
     <div>
@@ -24,7 +25,7 @@ const App = () => (
             <Route path="/attractions/:attractionId(\d+)/review" component={AttractionReviewFormContainer} />
             <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
             <Route path="/:city/attractions" component={AttractionHomeContainer} />
-            {/* <Route path="/:city/hotels" component={HotelsHomeContainer} /> */}
+            <Route path="/:city/hotels" component={HotelsHomeContainer} />
             <Route path="/:city" component={CityHomeContainer} />
             {/* <Route path="/restaurants" component={RestaurantHomeContainer} /> */}
             </Switch>

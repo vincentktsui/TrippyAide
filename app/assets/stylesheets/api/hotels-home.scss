@@ -1,0 +1,45 @@
+
+.hotels-home {
+    display: flex;
+}
+
+.hotel-listings > ul > li {
+    background: white;
+    margin-bottom: 15px;
+    height: 200px;
+}
+
+// .hotel-listings > ul > li:last-child {
+//     background: none;
+//     display: flex;
+//     justify-content: space-between;
+//     height: 100%;
+// }
+
+.hotel-listings {
+    width: 100%;
+}
+
+.hotels-index-item li:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hotels-home .hotels-index-item img {
+    width: 220px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.hotels-home .hotels-index-item figure {
+    margin-right: 15px;
+}
+
+.hotels-home .hotels-index-item {
+    display: flex;
+}
+
+.hotels-home .hotels-index-item div {
+    width: 100%;
+    padding: 10px 0;
+}
