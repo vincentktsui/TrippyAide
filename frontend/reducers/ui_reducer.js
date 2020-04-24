@@ -6,6 +6,7 @@ import attractionReducer from './attraction_reducer';
 import homeAttractionsReducer from './home_attractions_reducer';
 import mapAttractionsReducer from './map_attractions_reducer';
 import showAttractionsReducer from './show_attractions_reducer';
+import loadingReducer from './loading_reducer';
 
 export default combineReducers({
     attraction: attractionReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     filters: filtersReducer,
     mapAttractions: mapAttractionsReducer,
     homeAttractions: homeAttractionsReducer,
-    showAttractions: showAttractionsReducer
+    showAttractions: showAttractionsReducer,
+    loading: loadingReducer,
 });

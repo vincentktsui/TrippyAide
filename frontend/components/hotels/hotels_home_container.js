@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAttractions } from '../../actions/attraction_actions';
+import { fetchHotels } from '../../actions/hotel_actions';
 import { updateFilter, updateHomeFilter } from '../../actions/filter_actions';
 import HotelsHome from './hotels_home';
 
@@ -11,7 +11,7 @@ const mapStateToProps = ({ entities, ui }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-
+    fetchHotels: () => dispatch(fetchHotels()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HotelsHome);

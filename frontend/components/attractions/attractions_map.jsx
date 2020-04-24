@@ -10,7 +10,6 @@ class AttractionsMap extends React.Component {
     componentDidMount() {
         
         if (this.props.type === 'static') {
-            debugger
 
             this.map = new google.maps.Map(this.mapNode, {
                 zoom: 13, 
@@ -20,15 +19,23 @@ class AttractionsMap extends React.Component {
                 clickableIcons: false,
 
             });
-            debugger
             this.MarkerManager = new MarkerManager(this.map, 'static');
+
+            this.map.setCenter({
+                lat: this.props.show.lat,
+                lng: this.props.show.lng
+            });
+            this.MarkerManager.updateMarkers(this.props.attractions);
+
+            this.MarkerManager.createMarkerFromAttraction(this.props.show,
+                window.attractionMainURL)
             // this.MarkerManager.updateMarkers(this.props.show)
             // this.MarkerManager.updateMarkers(this.props.attractions);
 
         }
         else {
             const mapOptions = {
-                center: { lat: 37.7858, lng: -122.435 }, // this is SF
+                center: new google.maps.LatLng(localStorage.lat, localStorage.lng), // this is SF
                 zoom: 13,
                 gestureHandling: 'greedy',
                 mapTypeControl: false,
@@ -80,18 +87,7 @@ class AttractionsMap extends React.Component {
         // if (!this.map) {
         //     return null;
         // }
-        if (
-            !jQuery.isEmptyObject(this.props.show)
-            && (`${this.props.show.id}` === this.props.match.params.attractionId)
-            ) {
-            this.map.setCenter({lat: this.props.show.lat, 
-                lng: this.props.show.lng});
-            this.MarkerManager.updateMarkers(this.props.attractions);
-            
-            this.MarkerManager.createMarkerFromAttraction(this.props.show,
-                window.attractionMainURL)
-            // this.MarkerManager.createMainMarker(this.props.show);
-        }
+
         if (this.MarkerManager && Object.keys(this.MarkerManager.markers).length !== 0) {
             if (this.props.hovered) {
                 this.MarkerManager.panTo(this.props.hovered);

@@ -5,7 +5,7 @@ import Star from '../star';
 const HotelsIndexItem = (props) => {
     // 
     const imgsrc = props.hotel.photos[0].getUrl();
-    const rating = Math.round(props.hotel.rating * 2) / 2;
+    const rating = (props.hotel.rating) ? Math.round(props.hotel.rating * 2) / 2 : 0;
     return (
         <li
         >

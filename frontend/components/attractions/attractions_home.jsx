@@ -1,6 +1,7 @@
 import React from 'react';
 import AttractionsIndexItem from './attractions_index_item';
 import { Link } from 'react-router-dom';
+import FeaturesNav from '../features_nav';
 
 class AttractionsHome extends React.Component {
     constructor(props) {
@@ -86,7 +87,7 @@ class AttractionsHome extends React.Component {
         }
     }
     render() {
-        if (Object.keys(this.props.attractions).length === 0) {
+        if (this.props.loading) {
             return null;
         }
         const attractions = Object.values(this.props.attractions)
@@ -104,7 +105,7 @@ class AttractionsHome extends React.Component {
         const prevdisabled = (this.state.page <= 1) ? true : false;
         return (
             <div className="main-content">
-
+            <FeaturesNav />
             <div className='home-outer'>
                 <h1>Attractions</h1>
                 <div className='map-button'>

@@ -1,14 +1,6 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-        this.state = {
-
-        };
-        
-    }
 
     componentDidMount() {
         const options = { types: ['(cities)'] };

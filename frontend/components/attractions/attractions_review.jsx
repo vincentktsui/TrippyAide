@@ -9,8 +9,19 @@ class AttractionsReview extends React.Component {
         this.state = { page: 1 };
         this.nextPage = this.nextPage.bind(this);
         this.prevPage = this.prevPage.bind(this);
+        this.writeReview = this.writeReview.bind(this);
+        
     }
 
+    writeReview() {
+        if (this.props.loggedIn) {
+            this.props.history.push(`/attractions/${this.props.show.id}/review`);
+        }
+        else {
+            this.props.history.push(this.props.match.url+"/login")
+        }
+
+    }
     nextPage() {
         if (this.state.page < Math.floor(
             Object.keys(this.props.reviews).length / 20) + 1) {
@@ -42,12 +53,11 @@ class AttractionsReview extends React.Component {
         return (
             <div className="reviews-tab">
                 <div>
-                    <h2>Reviews</h2>
-                    <Link to={`/attractions/${this.props.show.id}/review`}>
+                    <h1>Reviews</h1>
                     <button
                         className="black-button"
+                        onClick={this.writeReview}
                         >Write a review</button>
-                    </Link>
                 </div>
                 <ul>
                     {reviews}

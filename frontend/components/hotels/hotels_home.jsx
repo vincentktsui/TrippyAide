@@ -1,6 +1,7 @@
 import React from 'react';
 import HotelsIndexItem from './hotels_index_item';
 import { Link } from 'react-router-dom';
+import FeaturesNav from '../features_nav';
 
 class HotelsHome extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class HotelsHome extends React.Component {
     }
     componentDidMount() {
         // this.props.updateHomeFilter("city", this.props.match.params.city);
+        this.props.fetchHotels();
     }
 
     render() {
@@ -19,9 +21,9 @@ class HotelsHome extends React.Component {
             .sort( (a,b) => b.rating - a.rating)
             .map(hotel => <HotelsIndexItem 
                 hotel={hotel} />);
-        console.log(this.props.hotels);
         return (
             <div className="main-content">
+                <FeaturesNav />
                 <div className='home-outer'>
                     <h1>Hotels</h1>
                     {/* <div className='map-button'>

@@ -1,0 +1,41 @@
+
+
+.features-nav {
+    background-color: white;
+    display: flex;
+    width: 240px;
+}
+
+.main-content > .features-nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.features-nav div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100px;
+    height: 60px;
+}
+
+.features-nav div:hover {
+    font-style: underline;
+}
+
+.features-nav span {
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.features-nav .fa {
+    font-size: 24px;
+}

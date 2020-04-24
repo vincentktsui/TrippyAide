@@ -1,5 +1,6 @@
 import React from 'react';
-import SplashSearch from './splash_search'
+import SplashSearchContainer from './splash_search_container';
+import SearchBar from './search_bar';
 
 const SplashModal = (props) => {
     if (!props.modal) {
@@ -9,7 +10,7 @@ const SplashModal = (props) => {
         <div className="splash-modal">
             <div className="modal-screen" onClick={props.closeModal}>
             </div>
-            <SplashSearch />
+            <SplashSearchContainer />
 
         </div>
     );

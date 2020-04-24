@@ -1,7 +1,8 @@
 import React from 'react';
 import * as APIUtil from '../../util/hotel_api_util';
 import { fetchHotels } from '../../actions/hotel_actions';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import FeaturesNav from '../features_nav';
 
 class CityHome extends React.Component {
     constructor(props) {
@@ -28,14 +29,7 @@ class CityHome extends React.Component {
         return(
             <div className="city-splash">
                 <h1>{localStorage.city}</h1>
-                <nav>
-                    <Link to={`/${localStorage.city}/attractions`}>
-                    <button>Attractions</button>
-                    </Link>
-                    <Link to={`/${localStorage.city}/hotels`}>
-                    <button>Hotels</button>
-                    </Link>
-                </nav>
+                <FeaturesNav />
             </div>
         )
     }

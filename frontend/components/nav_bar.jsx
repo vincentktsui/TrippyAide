@@ -15,9 +15,9 @@ const NavBar = (props) => {
             </div>
             <div className="user-dropdown hidden">
                 <ul>
-                    <li>
+                    {/* <li>
                         <Link className='avatar-link'>View Profile</Link>    
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/">
                             <button onClick={props.logout}>Sign Out</button>

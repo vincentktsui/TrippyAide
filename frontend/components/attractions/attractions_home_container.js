@@ -15,6 +15,7 @@ const mapStateToProps = ({ entities, ui }) => {
     
     return {
         attractions: filtered,
+        loading: ui.loading,
     };
 };
 

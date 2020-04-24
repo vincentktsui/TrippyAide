@@ -20,7 +20,7 @@ class AttractionsIndex extends React.Component {
             <aside className="attractions-map-list">
                 <ul>
                     <li>
-                        <Link to='/attractions'>
+                        <Link to={`/${localStorage.city}/attractions`}>
                             <button className='black-button'>
                                 <span>&times;&nbsp;</span>Close Map
                             </button>

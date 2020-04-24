@@ -2,6 +2,7 @@ import React from 'react';
 import AttractionsMap from './attractions_map';
 import AttractionsShow from './attractions_show';
 import AttractionsReview from './attractions_review';
+import FeaturesNav from '../features_nav';
 // import FilterForm from './filter_form';
 
 class Show extends React.Component {
@@ -31,12 +32,13 @@ class Show extends React.Component {
         // this.props.clearAttraction();
     }
     render () {
-        if (!this.props.show) {
+        // if (!this.props.show) {
+        if (!this.props.show || this.props.loading) {
             return null;
         }
         return (
             <div className="main-content">
-
+            <FeaturesNav />
             <div>
                 <AttractionsShow
                     // attractions={props.attractions}
@@ -52,7 +54,10 @@ class Show extends React.Component {
                     />
                 <AttractionsReview
                     show={this.props.show}
-                    reviews={this.props.reviews}/>
+                    reviews={this.props.reviews}
+                    loggedIn={this.props.loggedIn}
+                    history={this.props.history}
+                    match={this.props.match}/>
             </div>
             </div>
         )

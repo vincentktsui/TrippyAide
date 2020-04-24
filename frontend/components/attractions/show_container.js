@@ -5,7 +5,7 @@ import { fetchAttraction, clearAttraction } from '../../actions/attraction_actio
 import { withRouter } from 'react-router-dom';
 
 
-const mapStateToProps = ({ entities, ui }) => {
+const mapStateToProps = ({ entities, ui, session }) => {
     const filtered = Object.keys(entities.attractions).filter(key => ui.showAttractions.includes(key))
         .reduce((obj, key) => {
             return {
@@ -18,6 +18,8 @@ const mapStateToProps = ({ entities, ui }) => {
         attractions: filtered,
         show: ui.attraction,
         reviews: entities.reviews,
+        loading: ui.loading,
+        loggedIn: session.id,
     };
 
 };
