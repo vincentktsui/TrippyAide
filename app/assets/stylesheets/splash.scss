@@ -36,10 +36,12 @@
 
 .splash-search {
     font-family: 'Open Sans';
-    position: relative;
+    position: absolute;
     margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 45%;
     z-index: 2;
-    top: 100px;
     width: 340px;
     // height:314px;
     padding: 20px;

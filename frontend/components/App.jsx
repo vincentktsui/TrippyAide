@@ -21,12 +21,12 @@ const App = () => (
         </header>
             
             <Switch>
-            <Route exact path="/" component={SplashContainer}/>
             <Route path="/attractions/:attractionId(\d+)/review" component={AttractionReviewFormContainer} />
             <Route path="/attractions/:attractionId(\d+)" component={ShowContainer} />
             <Route path="/:city/attractions" component={AttractionHomeContainer} />
             <Route path="/:city/hotels" component={HotelsHomeContainer} />
-            <Route path="/:city" component={CityHomeContainer} />
+            <Route path="/:city(^(?!(login|signup)$))" component={CityHomeContainer} />
+            <Route path="/" component={SplashContainer}/>
             {/* <Route path="/restaurants" component={RestaurantHomeContainer} /> */}
             </Switch>
             <Route path="/attractions/map" component={SearchContainer} />
