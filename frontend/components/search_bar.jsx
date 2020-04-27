@@ -30,11 +30,18 @@ class SearchBar extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname == "/") {
+            const input = document.getElementById('nav-search');
+            input.value = "";
+        }
+    }
+
     render() {
         return (
         <div className="search-bar">
             <form onSubmit={e => { e.preventDefault(); }}>
-                <input id="nav-search" type="search"/>
+                <input id="nav-search" type="search" placeholder="Enter a location (e.g. San Francisco)"/>
             </form>
         </div>
         )

@@ -7,6 +7,7 @@ const AttractionsIndexItem = (props) => {
     const imgsrc = (props.attraction.photoUrls[0]) ? props.attraction.photoUrls[0] : window.stockURL
     const rating = Math.round(props.attraction.avg_rating * 2) / 2;
     const itemid = (props.type === 'full-map') ? `attraction-${props.attraction.id}` : '';
+    const about = (props.type !== 'full-map') ? props.attraction.about : "";
     return (
         <li 
         id={itemid}
@@ -27,6 +28,9 @@ const AttractionsIndexItem = (props) => {
                         </li>
                         {/* <li>{Util.addressMaker(props.attraction)}</li> */}
                         <li><Star rating={rating}/></li>
+                        <li>
+                            <p>{about}</p>
+                        </li>
                     </ul>
                 </div>
 

@@ -32,7 +32,7 @@ class SplashSearch extends React.Component {
         return (
             <div className='splash-search'>
                     <form onSubmit={e => { e.preventDefault(); }}>
-                    <input id="splash-search" type="search" placeholder="Where to?" />
+                    <input id="splash-search" type="search" placeholder="Where to? (e.g. San Francisco)" />
                     </form>
             </div>
         )

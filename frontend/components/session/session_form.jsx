@@ -96,7 +96,7 @@ class SessionForm extends React.Component {
                     </Link>
                     <div className="session-inner">
                         <header>
-                            <img src={window.loginURL} />
+                            <img src={window.logoURL} />
                         </header>
                         {emailerrorsdiv}
                         {passworderrorsdiv}
