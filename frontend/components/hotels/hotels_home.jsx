@@ -10,7 +10,8 @@ class HotelsHome extends React.Component {
     }
     componentDidMount() {
         // this.props.updateHomeFilter("city", this.props.match.params.city);
-        this.props.fetchHotels();
+        this.props.fetchHotels(localStorage.lat, localStorage.lng);
+        console.log(this.props.hotels)
     }
 
     render() {

@@ -1,8 +1,8 @@
-export const fetchHotels = (filters) => {
+export const fetchHotels = (lat, lng) => {
     const places = new google.maps.places.PlacesService(document.createElement('div'));
 
     const params = {
-        location: new google.maps.LatLng(localStorage.lat, localStorage.lng),
+        location: new google.maps.LatLng(lat, lng),
         radius: 50000,
         rankby: 'prominence',
         types: ['lodging'], 

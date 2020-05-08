@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
     fetchAttractions: filters => dispatch(fetchAttractions(filters)),
-    fetchHotels: () => dispatch(fetchHotels()),
+    fetchHotels: (lat, lng) => dispatch(fetchHotels(lat, lng)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CityHome));

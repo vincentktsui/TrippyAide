@@ -7,8 +7,8 @@ export const receiveHotels = hotels => ({
     hotels
 });
 
-export const fetchHotels = () => dispatch => {
-    return HotelUtil.fetchHotels()
+export const fetchHotels = (lat, lng) => dispatch => {
+    return HotelUtil.fetchHotels(lat, lng)
         .then( (hotels) => {
             dispatch(receiveHotels(hotels))
             // console.log(hotels);

@@ -52,6 +52,7 @@ class Show extends React.Component {
                     show={this.props.show}
                     // updateFilter={props.updateFilter} 
                     />
+                {/* <AttractionsTop /> */}
                 <AttractionsReview
                     show={this.props.show}
                     reviews={this.props.reviews}

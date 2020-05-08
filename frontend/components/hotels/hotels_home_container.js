@@ -11,7 +11,7 @@ const mapStateToProps = ({ entities, ui }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchHotels: () => dispatch(fetchHotels()),
+    fetchHotels: (lat, lng) => dispatch(fetchHotels(lat, lng)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HotelsHome);
