@@ -1,6 +1,6 @@
-name: "Exploratorium";lat: 37.8015191;lng: -122.3975993;address: 15 The Embarcadero; San Francisco; CA 94111; United States; categories: Museums
+name: "Exploratorium";lat: 37.8015191;lng: -122.3975993;address: 15 The Embarcadero; San Francisco; CA 94111; United States; categories: Museums; image: 
 name: "Coit Tower";lat: 37.8023949;lng: -122.4058222;address: 1 Telegraph Hill Blvd; San Francisco; CA 94133; United States; categories: Sights & Landmarks, Landmarks, Architectural Buildings
-name: "PIER 39";lat: 37.80867300000001;lng: -122.409821;address: The Embarcadero; San Francisco; CA 94133; United States; categories: Sights & Landmarks, Landmarks
+name: "Pier 39";lat: 37.80867300000001;lng: -122.409821;address: The Embarcadero; San Francisco; CA 94133; United States; categories: Sights & Landmarks, Landmarks
 name: "Filbert Street Stairs";lat: 37.80212849999999;lng: -122.4034342;address: 281 Filbert St; San Francisco; CA 94133; United States; categories: Sights & Landmarks
 name: "Aquarium of the Bay";lat: 37.8086487;lng: -122.4093299;address: PIER 39 The Embarcadero & Beach St; San Francisco; CA 94133; United States; categories: Zoos & Aquariums, Aquariums
 name: "Pioneer Park";lat: 37.8028761;lng: -122.4060188;address: 1 Telegraph Hill Blvd; San Francisco; CA 94133; United States;  categories: Nature & Parks, Parks
@@ -20,7 +20,6 @@ name: "Golden Gate Park";lat: 37.7694208;lng: -122.4862138;address: ;San Francis
 name: "Pioneer Park";lat: 37.8028761;lng: -122.4060188;address: 1 Telegraph Hill Blvd; San Francisco; CA 94133; United States; categories: Nature & Parks, Parks
 name: "Mission Dolores Park";lat: 37.7595861;lng: -122.4269083;address: Dolores St & 19th St; San Francisco; CA 94114; United States; categories: Nature & Parks, Parks
 name: "San Francisco Maritime National Historical Park";lat: 37.80774299999999;lng: -122.42415;address: 2905 Hyde Street; San Francisco; CA 94109; United States; categories: Nature & Parks, Parks
-name: "Lafayette Park Tennis Court";lat: 37.79165;lng: -122.4275889;address: Gough St & Washington St; San Francisco; CA 94109; United States; categories: Nature & Parks
 name: "Alamo Square Park";lat: 37.7763694;lng: -122.434819;address: Steiner St & Hayes Street; San Francisco; CA 94117; United States; categories: Nature & Parks, Parks
 name: "Yerba Buena Gardens";lat: 37.7849884;lng: -122.4023514;address: 750 Howard St; San Francisco; CA 94103; United States; categories: Nature & Parks, Parks
 name: "Buena Vista Park";lat: 37.7684046;lng: -122.4414145;address: Buena Vista & Haight Street; San Francisco; CA 94117; United States; categories: Nature & Parks, Parks
@@ -28,7 +27,6 @@ name: "USS San Francisco Memorial";lat: 37.782836;lng: -122.5116181;address: ; S
 name: "Grandview Park";lat: 37.7564222;lng: -122.4717361;address: 1705 14th Ave; San Francisco; CA 94122; United States; categories: Nature & Parks, Parks
 name: "Patricia’s Green In Hayes Valley";lat: 37.7762408;lng: -122.4244258;address: Fell St & Octavia Boulevard; San Francisco; CA 94102; United States;
 name: "John McLaren Park";lat: 37.7192874;lng: -122.4183155;address: 100 John F Shelley Dr; San Francisco; CA 94134; United States; categories: Nature & Parks, Parks
-name: "San Francisco Parks Alliance";lat: 37.7774341;lng: -122.4074595;address: 1074 Folsom St; San Francisco; CA 94103; United States; categories: Nature & Parks, Parks
 name: "Fort Funston";lat: 37.7195436;lng: -122.5028052;address: Fort Funston Rd; San Francisco; CA 94132; United States; categories: Nature & Parks, Parks, Sights & Landmarks, Historic Sites
 name: "Glen Canyon Park";lat: 37.7415588;lng: -122.4431851;address: Elk St and Chenery St; San Francisco; CA 94127; United States; categories: Nature & Parks, Parks
 name: "Corona Heights Park";lat: 37.7653122;lng: -122.4385846;address: Roosevelt Way & Museum Way; San Francisco; CA 94114; United States; categories: Nature & Parks, Parks
@@ -41,7 +39,6 @@ name: "Baker Beach";lat: 37.7935724;lng: -122.483638;address: Baker Beach; San F
 name: "Ocean Beach";lat: 37.7593921;lng: -122.510734;address: Ocean Beach; San Francisco; CA 94121; USA; categories: Nature & Parks, Beaches
 name: "Mile Rock Beach";lat: 37.787583;lng: -122.5060605;address: Lands End Trail; San Francisco; CA 94121; United States; categories: Nature & Parks, Beaches
 name: "Funston Beach";lat: 37.7195898;lng: -122.5058026;address: Funston Beach; San Francisco; CA 94132; USA; categories: Nature & Parks, Beaches
-name: "Port of Trade Winds Beach";lat: 37.8134445;lng: -122.3699584;address: Port of Trade Winds Beach; San Francisco; CA 94130; USA; categories: Nature & Parks, Beaches
 name: "Black Sands Beach";lat: 37.82433049999999;lng: -122.5086904;address: Black Sands Beach; San Francisco; CA 94941; USA; categories: Nature & Parks, Beaches
 name: "Crissy Field";lat: 37.8040257;lng: -122.4650165;address: 1199 E Beach; San Francisco; CA 94129; United States; categories: Nature & Parks, Parks
 name: "South Beach Park";lat: 37.7806703;lng: -122.3881427;address: San Francisco; CA 94107; United States; categories: Nature & Parks, Parks, Beaches

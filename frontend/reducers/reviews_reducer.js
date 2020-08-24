@@ -6,7 +6,7 @@ const reviewsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ATTRACTION:
-            return action.attractions.reviews;
+            return (action.attractions.reviews || state);
         default:
             return state;
     }

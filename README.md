@@ -1,25 +1,8 @@
 # TravelGuide README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+[Live site](http://trippyaide.herokuapp.com/)
+## Summary
+TrippyAide is a travel planning app inspired by the travel site [TripAdvisor](https://tripadvisor.com)
+TrippyAide allows users to 
+## Structure
+### Backend
+### Frontend

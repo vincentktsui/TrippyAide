@@ -33,17 +33,28 @@ attraction_names.each do |attraction|
     address = split[3].split("address: ")[1]
     zip = split[5].split(' ')[1]
     categories = split[7]
+    img = name.split(' ').join('')
+    puts img
     if categories
         categories = categories[13..-1].split(',').map(&:strip)
     end
-    attractions.push(Attraction.create({name: name, country: 'USA', administrative_area: 'CA', locality: 'San Francisco', about: Faker::GreekPhilosophers.quote + ' ' + Faker::GreekPhilosophers.quote,
-        postal_code: zip, thoroughfare: address, coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(lng, lat) }))
+    temp = Attraction.create({name: name, country: 'USA', administrative_area: 'CA', locality: 'San Francisco', about: Faker::GreekPhilosophers.quote + ' ' + Faker::GreekPhilosophers.quote,
+        postal_code: zip, thoroughfare: address, coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(lng, lat) })
+    if img == "Mus\u00E9eM\u00E9canique"
+      temp.photos.attach(io: open("https://trip-advisor-clone-seeds.s3-us-west-1.amazonaws.com/seed_images/Mus%C3%A9eM%C3%A9canique.jpg"), filename: "Mus%C3%A9eM%C3%A9canique.jpg")
+    elsif img == "Patricia\u2019sGreenInHayesValley"
+      temp.photos.attach(io: open("https://trip-advisor-clone-seeds.s3-us-west-1.amazonaws.com/seed_images/Patricia%E2%80%99sGreenInHayesValley.jpg"), filename: "Patricia%E2%80%99sGreenInHayesValley.jpg")
+    else
+      temp.photos.attach(io: open("https://trip-advisor-clone-seeds.s3.us-west-1.amazonaws.com/seed_images/#{img}.jpg"), filename: "#{img}.jpg")
+    end
+    attractions.push(temp)
     if categories
         categories.each do |category|
             index = CATEGORIES.find_index(category) + 1
             AttractionCategory.create({attraction_id: attractions[-1].id, category_id: index})
         end
     end
+
 end
 
 # Reviews
@@ -53,29 +64,49 @@ TWOSTAR = ['Boring', 'Not much to do', "Would recommend another place", 'Not wor
 THREESTAR = ['Average', 'There are better ones out there', 'Kind of dirty and littered', 'It was ok', 'Nothing special']
 FOURSTAR = ['Would come again', 'Recommend it', 'This place has it all', 'Famous landmark', 'Tourist must do']
 FIVESTAR = ['Iconic landmark', 'Amazing', 'Absolutely breathtaking', 'Super worth it', 'Definitely recommend it', '10/10 would come again', ]
+GOODREVIEWS = [
+  "Visiting family in California and made a stop over in San Francisco! After seeing it on TV for so many years nothing compares to seeing it in person. Gorgeous!",
+  "Surreal experience, It was more beautiful in person! Crazy!! Can't wait to go back!",
+  "Many amazing views during sunset. I recommend seeing every angle that you can.",
+  "Great place to visit for fresh air and a break from the city.",
+  "This was highlight of our tour. So much fun and it is super beautiful. A must visit when you come to San Francisco.",
+  "One of the famous San Francisco icons. One of the very recognizable icons of San Francisco."
+]
+OKREVIEWS = [
+  "Cool but overrated. Maybe in the past was good. Seeing it from a distance is all that it warrants.",
+  "The weather does not cooperate with seeing it. It's better to get pictures from farther away."
+]
+BADREVIEWS = [
+  "Complete trash. Garbage covered everything. Worst trip ever.",
+  "Was so foggy the day we came in we couldn't even see it until we were on it, we were never in a good spot to see after fog lifted.",
+  "I wish someone explains to me why this is a top attraction. Nothing special.",
+  "Great views in a HIGH CRIME AREA - DO NOT PARK IN AREA WITH VALUABLES",
+  "The views are decieving. The pictures you see in reviews are one thing, going there is a differnt story."
+]
+
 
 def generateReviews(attraction, users, five, four, three, two, one)
     total = one+two+three+four+five
     reviewers = users.sample(total)
     five.times do
-        AttractionReview.create({title: FIVESTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 5, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: FIVESTAR.sample, body: GOODREVIEWS.sample, rating: 5, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     four.times do
-        AttractionReview.create({title: FOURSTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 4, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: FOURSTAR.sample, body: GOODREVIEWS.sample, rating: 4, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     three.times do
-        AttractionReview.create({title: THREESTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 3, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: THREESTAR.sample, body: OKREVIEWS.sample, rating: 3, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     two.times do
-        AttractionReview.create({title: TWOSTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 2, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: TWOSTAR.sample, body: BADREVIEWS.sample, rating: 2, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
     one.times do
-        AttractionReview.create({title: ONESTAR.sample, body: Faker::TvShows::DumbAndDumber.quote + ' ' + Faker::TvShows::Friends.quote, rating: 1, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
+        AttractionReview.create({title: ONESTAR.sample, body: BADREVIEWS.sample, rating: 1, visit_date: Faker::Date.between(from: 10.years.ago, to: Date.today), author_id: reviewers.pop().id, attraction_id: attraction.id})
     end
 end
 
 attractions.each do |attraction|
-    generateReviews(attraction, users, rand(15..20), rand(10..15), rand(5..10), rand(2..7), rand(0..5))
+    generateReviews(attraction, users, rand(10..15), rand(5..10), rand(0..10), rand(0..3), rand(0..3))
 end
 
 alcatraz_island = Attraction.create({name: 'Alcatraz Island', country: 'USA', 
@@ -87,7 +118,7 @@ alcatraz_island.photos.attach(io: open('https://trip-advisor-clone-seeds.s3.us-w
 AttractionCategory.create({attraction_id: alcatraz_island.id, category_id: 1})
 AttractionCategory.create({attraction_id: alcatraz_island.id, category_id: 2})
 AttractionCategory.create({attraction_id: alcatraz_island.id, category_id: 5})
-generateReviews(alcatraz_island, users, rand(15..20), rand(10..15), 0, 0, rand(0..5))
+generateReviews(alcatraz_island, users, rand(15..20), rand(7..12), rand(3..8), 0, 0)
 
 
 lombard_street = Attraction.create({name: 'Lombard Street', country: 'USA', 
