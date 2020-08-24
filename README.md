@@ -1,7 +1,8 @@
 # TravelGuide README
 [Live site](http://trippyaide.herokuapp.com/)
 ## Summary
-TrippyAide is a travel planning app inspired by the travel site [TripAdvisor](https://tripadvisor.com)
+TrippyAide is a travel planning app inspired by the travel site [TripAdvisor](https://tripadvisor.com).
+
 TrippyAide allows users to browse through attractions and hotels at the city they are interested in and read
 the reviews other users have left to plan their own trips.
 ## Structure
