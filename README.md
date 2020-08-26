@@ -79,5 +79,6 @@ I plan on continuing to develop TrippyAide. Some possible features include:
 **Integration of Yelp API for restaurants**   
 **Image uploading**   
 * This one not might be possible because of AWS storage cost   
-**A plan trip feature that allows you to plan and map a route**   
+
+__A plan trip feature that allows you to plan and map a route__ 
 
