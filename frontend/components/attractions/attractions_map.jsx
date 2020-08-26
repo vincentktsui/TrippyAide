@@ -29,9 +29,6 @@ class AttractionsMap extends React.Component {
 
             this.MarkerManager.createMarkerFromAttraction(this.props.show,
                 window.attractionMainURL)
-            // this.MarkerManager.updateMarkers(this.props.show)
-            // this.MarkerManager.updateMarkers(this.props.attractions);
-
         }
         else {
             const mapOptions = {
